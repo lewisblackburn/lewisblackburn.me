@@ -42,7 +42,7 @@ export function Hero() {
                 </Button>
                 <Button variant='secondary' size={'sm'} className='border bg-muted px-2' asChild>
                   <Link
-                    href={UtmUrl('https://fly.metabase.dev', {
+                    href={UtmUrl('/projects/metabase', {
                       medium: UtmMediums.Homepage,
                       content: 'hero',
                     })}>
