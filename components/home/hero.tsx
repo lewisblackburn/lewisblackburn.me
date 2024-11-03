@@ -29,7 +29,8 @@ export function Hero() {
             {/* Occupation and description */}
             <div className='my-6 space-y-2'>
               <h2 className='flex flex-wrap items-center justify-center gap-4 text-sm font-medium leading-8 md:text-base'>
-                web developer @
+                web developer
+                <span>@</span>
                 <Button variant='secondary' size={'sm'} className='border bg-muted px-2' asChild>
                   <Link
                     href={UtmUrl('https://drive2learn.co.uk', {
@@ -37,7 +38,7 @@ export function Hero() {
                       content: 'hero',
                     })}>
                     <Icon name='car' width={20} height={20} className='mr-2 inline-block rounded-sm text-red-500' />
-                    Drive2Learn
+                    Drive 2 Learn
                   </Link>
                 </Button>
                 <Button variant='secondary' size={'sm'} className='border bg-muted px-2' asChild>

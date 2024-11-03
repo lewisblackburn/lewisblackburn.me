@@ -2,7 +2,7 @@ import * as React from 'react'
 import Image from 'next/image'
 
 const personalAchievements = [
-  { title: 'First Freelance Web Developer Project: Drive2Learn', subtitle: '2024' },
+  { title: 'First Freelance Web Developer Project: Drive 2 Learn', subtitle: '2024' },
   { title: 'Appointed Social Secretary at Rowing Club', subtitle: '2022' },
   { title: 'Started development on Metabase', subtitle: '2021' },
   { title: 'Graduated from College', subtitle: '2020' },
