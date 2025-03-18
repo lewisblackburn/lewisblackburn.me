@@ -72,7 +72,7 @@ export default function RootLayout({
       <body className={cn(inter.className, biotif.className)}>
         <SpeedInsights />
         <GTM />
-        <ThemeProvider attribute='class' defaultTheme='dark' enableSystem={false}>
+        <ThemeProvider attribute='class' defaultTheme='light' enableSystem={false}>
           <ProgressProvider>
             {children}
             <Toaster />

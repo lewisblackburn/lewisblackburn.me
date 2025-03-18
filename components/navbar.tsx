@@ -37,14 +37,12 @@ export function Navbar() {
               <li className='row-span-3'>
                 <NavigationMenuLink asChild>
                   <Link
-                    className='bg-opacity/20 flex size-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-sky-700 to-sky-950 p-3 no-underline outline-none focus:shadow-md'
+                    className='flex size-full select-none flex-col justify-end rounded-md bg-black p-3 text-white no-underline outline-none focus:shadow-md'
                     href={UtmUrl(Routes.Services, {
                       medium: UtmMediums.Navbar,
                     })}>
                     <div className='text-lg font-semibold leading-tight'>What I can do for you</div>
-                    <p className='mt-2 text-sm leading-tight text-sky-100'>
-                      Work with me to get the best out of your business.
-                    </p>
+                    <p className='mt-2 text-sm leading-tight '>Work with me to get the best out of your business.</p>
                     <p className='mt-4 text-sm underline underline-offset-2'>
                       Find out more <ArrowUpRight className='ml-1 inline-block size-4' />
                     </p>
