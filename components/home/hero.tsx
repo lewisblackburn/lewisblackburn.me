@@ -3,7 +3,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { UtmUrl } from '@/utils/urls'
-import MetabaseIcon from 'public/images/projects/metabase/icon.png'
 
 import { UtmMediums } from '@/types/links'
 
@@ -12,6 +11,7 @@ import { Button } from '../ui/button'
 import GridIconTwo from '/public/images/home/edge-of-gaping-gill.webp'
 import GridWideImage from '/public/images/home/hike.webp'
 import GridIconThree from '/public/images/home/top-of-ingelborough.webp'
+import JmdccbIcon from '/public/images/projects/jmdccb/icon.png'
 
 export function Hero() {
   return (
@@ -43,18 +43,18 @@ export function Hero() {
                 </Button>
                 <Button variant='secondary' size={'sm'} className='border bg-muted px-2' asChild>
                   <Link
-                    href={UtmUrl('/projects/metabase', {
+                    href={UtmUrl('https://jmdccb.vercel.app', {
                       medium: UtmMediums.Homepage,
                       content: 'hero',
                     })}>
                     <Image
-                      src={MetabaseIcon}
-                      alt='Metabase logo'
-                      width={24}
-                      height={24}
+                      src={JmdccbIcon}
+                      alt='JMDCCB logo'
+                      width={18}
+                      height={18}
                       className='mr-2 inline-block rounded-sm'
                     />
-                    Metabase
+                    JM Developments
                   </Link>
                 </Button>
               </h2>
