@@ -91,7 +91,7 @@ export function Skills() {
           const color = hexToRgb(skill.color, 0, true)
           return (
             <div
-              className='text-3xs dark:hover:bg-divider hover:text-accent-7 flex items-center justify-center gap-2 truncate rounded-full border bg-background px-[2rem] py-2 transition hover:scale-[1.015] hover:border-[rgba(var(--skill-color)/0.56)] hover:bg-[rgba(var(--skill-color)/0.12)] dark:hover:bg-[rgba(var(--skill-color)/0.18)]'
+              className='text-3xs dark:hover:bg-divider hover:text-accent-7 flex items-center justify-center gap-2 truncate rounded-full border bg-background px-8 py-2 transition hover:scale-[1.015] hover:border-[rgba(var(--skill-color)/0.56)] hover:bg-[rgba(var(--skill-color)/0.12)] dark:hover:bg-[rgba(var(--skill-color)/0.18)]'
               // @ts-ignore
               style={{ '--skill-color': color }}
               key={skill.name}>

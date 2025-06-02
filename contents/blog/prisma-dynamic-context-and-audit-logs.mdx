@@ -289,12 +289,8 @@ if (equal(before, after, fieldsToIgnore)) return result
 
 const isDeleteOperation = operation === 'delete' || operation === 'deleteMany'
 
-oldValues = isDeleteOperation
-  ? before
-  : difference(before, after, fieldsToIgnore).oldValues
-newValues = isDeleteOperation
-  ? {}
-  : difference(before, after, fieldsToIgnore).newValues
+oldValues = isDeleteOperation ? before : difference(before, after, fieldsToIgnore).oldValues
+newValues = isDeleteOperation ? {} : difference(before, after, fieldsToIgnore).newValues
 
 // further code ...
 ```
@@ -323,12 +319,12 @@ try {
         // @ts-expect-error id and filmId are not always defined
         filmId: modelId ?? newValues?.id ?? newValues?.filmId,
         oldValues: JSON.stringify(oldValues),
-        newValues: JSON.stringify(newValues)
-      }
+        newValues: JSON.stringify(newValues),
+      },
     })
     await $prisma.user.update({
       where: { id: userId },
-      data: { totalEdits: { increment: 1 } }
+      data: { totalEdits: { increment: 1 } },
     })
   })
 } catch (e) {

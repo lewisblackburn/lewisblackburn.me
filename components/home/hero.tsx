@@ -16,11 +16,9 @@ export function Hero() {
   return (
     <>
       <section id='hero'>
-        <Background />
-
         <div className='flex flex-col'>
           <div className='mt-12 flex flex-col items-center'>
-            <h1 className='bg-linear-to-b from-black via-black/90 to-black/70 bg-clip-text text-center text-4xl font-bold text-transparent md:text-7xl dark:from-white dark:via-white/80 dark:to-white/60'>
+            <h1 className='bg-linear-to-b from-black via-black/90 to-black/70 bg-clip-text text-center text-4xl font-bold text-transparent dark:from-white dark:via-white/80 dark:to-white/60 md:text-7xl'>
               Lewis Blackburn
             </h1>
 
@@ -102,11 +100,5 @@ export function Hero() {
         </div>
       </section>
     </>
-  )
-}
-
-function Background() {
-  return (
-    <div className='absolute inset-0 -z-10 size-full bg-[linear-gradient(to_right,#ffffff11_1px,transparent_1px),linear-gradient(to_bottom,#ffffff11_1px,transparent_1px)] bg-size-70 [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_60%,transparent_100%)]'></div>
   )
 }

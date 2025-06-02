@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import { allExperiences, Experience } from '@/.contentlayer/generated'
 import { UtmUrl } from '@/utils/urls'
