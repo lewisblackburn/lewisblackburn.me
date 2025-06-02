@@ -2,6 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { UtmUrl } from '@/utils/urls'
+import { UserIcon } from 'lucide-react'
 
 import { UtmMediums } from '@/types/links'
 import { testimonials } from '@/config/testimonials'
@@ -30,16 +31,21 @@ const TestimonialCard = ({ testimonial }: { testimonial: (typeof testimonials)[0
       <li className='text-sm leading-6'>
         <figure className='relative flex flex-col rounded-lg border bg-muted p-6'>
           <figcaption className='flex items-center space-x-4'>
-            <Image
-              src={testimonial.avatar}
-              alt={testimonial.name}
-              width={60}
-              height={60}
-              className='size-14 flex-none rounded-xl object-cover'
-              loading='lazy'
-              decoding='async'
-            />
-            {/* shadcn ui placeholder image if  */}
+            {testimonial.avatar ? (
+              <Image
+                src={testimonial.avatar}
+                alt={testimonial.name}
+                width={60}
+                height={60}
+                className='size-14 flex-none rounded-xl object-cover'
+                loading='lazy'
+                decoding='async'
+              />
+            ) : (
+              <div className='flex size-12 flex-none items-center justify-center rounded-xl bg-border'>
+                <UserIcon className='size-6 text-muted-foreground' />
+              </div>
+            )}
             <div className='flex-auto'>
               <div className='text-base font-semibold'>
                 <span className='absolute inset-0' />
@@ -49,7 +55,7 @@ const TestimonialCard = ({ testimonial }: { testimonial: (typeof testimonials)[0
             </div>
           </figcaption>
           <blockquote className='mt-6 text-muted-foreground'>
-            <p>{testimonial.testimonial} </p>
+            <p>"{testimonial.testimonial}"</p>
           </blockquote>
         </figure>
       </li>
@@ -74,8 +80,8 @@ export function Testimonials({ className }: Props) {
             })}>
             <Image
               className='mx-auto'
-              src='/images/testimonials/drive2learn.png'
-              alt='revenue farm logo'
+              src='/images/testimonials/drive2learn.svg'
+              alt='Drive 2 Learn logo'
               width={200}
               height={40}
             />
@@ -83,11 +89,24 @@ export function Testimonials({ className }: Props) {
           <figure className='mt-10'>
             <blockquote className='text-accent-7 text-center text-xl font-semibold leading-8 sm:text-2xl sm:leading-9'>
               <p>
-                “Aliquam dapibus turpis sit{' '}
-                <strong className='underline decoration-sky-400 underline-offset-4'>amet ultricies </strong>
-                accumsan. Suspendisse faucibus dui ut ipsum convallis, ut pulvinar{' '}
-                <strong className='underline decoration-sky-400 underline-offset-4'>tortor </strong>
-                luctus. Quisque pellentesque semper mauris. ”
+                "Drive 2 Learn was a mere info page from Google Sites. We started expanding but our web page remained
+                the same for years, until{' '}
+                <strong className='underline decoration-sky-400 underline-offset-4'>Lewis turned up</strong>. He
+                transformed our website to be{' '}
+                <strong className='underline decoration-sky-400 underline-offset-4'>
+                  professional, well-designed and functional
+                </strong>
+                . Lewis implemented{' '}
+                <strong className='underline decoration-sky-400 underline-offset-4'>
+                  his own ideas and forward-thinking content.
+                </strong>{' '}
+                {/* that we could never have thought of. */}
+                {/* Additionally, made our brand image{' '}
+                <strong className='underline decoration-sky-400 underline-offset-4'>explode on the internet</strong> and
+                in our first week of launching our new website, we had{' '}
+                <strong className='underline decoration-sky-400 underline-offset-4'>way too many enquiries</strong> that
+                we could handle.{' '} */}
+                Thank you very much Lewis for working with us and taking us to the next level ."
               </p>
             </blockquote>
             <figcaption className='mt-10'>
@@ -108,7 +127,7 @@ export function Testimonials({ className }: Props) {
                   className='hidden fill-gray-300 md:block'>
                   <circle cx={1} cy={1} r={1} />
                 </svg>
-                <div className='text-gray-300'>Founder @ Drive 2 Learn</div>
+                <div className='text-secondary-foreground/50'>Founder @ Drive 2 Learn</div>
               </div>
             </figcaption>
           </figure>

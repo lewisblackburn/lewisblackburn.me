@@ -15,6 +15,12 @@ const config: Partial<Config> = {
       },
     },
     extend: {
+      backgroundImage: {
+        'linear-to-b': 'linear-gradient(to bottom, var(--tw-gradient-stops))',
+      },
+      backgroundSize: {
+        'size-70': '70px 70px',
+      },
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',

@@ -112,6 +112,52 @@ const BlogPost = defineDocumentType(() => ({
   },
 }))
 
+export const Experience = defineDocumentType(() => ({
+  name: 'Experience',
+  filePathPattern: `experience/**/*.mdx`,
+  contentType: 'mdx',
+  fields: {
+    title: {
+      type: 'string',
+      required: true,
+    },
+    company: {
+      type: 'string',
+      required: true,
+    },
+    location: {
+      type: 'string',
+      required: true,
+    },
+    startDate: {
+      type: 'string',
+      required: true,
+    },
+    endDate: {
+      type: 'string',
+      required: true,
+    },
+    description: {
+      type: 'string',
+      required: true,
+    },
+    url: {
+      type: 'string',
+      required: false,
+    },
+    featured: {
+      type: 'boolean',
+      default: false,
+    },
+  },
+  computedFields: {
+    slug: {
+      type: 'string',
+      resolve: (doc) => doc._raw.flattenedPath.replace('experience/', ''),
+    },
+  },
+}))
+
 const Pages = defineDocumentType(() => ({
   name: 'Pages',
   filePathPattern: 'pages/**/*.mdx',
@@ -126,7 +172,7 @@ const Pages = defineDocumentType(() => ({
 
 export default makeSource({
   contentDirPath: 'contents',
-  documentTypes: [Project, BlogPost, Pages],
+  documentTypes: [Project, BlogPost, Pages, Experience],
   mdx: {
     remarkPlugins: remarkPlugins,
     rehypePlugins: rehypePlugins,

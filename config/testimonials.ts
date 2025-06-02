@@ -1,8 +1,15 @@
 export const testimonials = [
   {
+    name: "Sainsbury's",
+    title: 'Manager(s)',
+    avatar: '/images/testimonials/sainsburys.jpeg',
+    testimonial:
+      'Lewis was a standout member of our team—whenever he needs a reference, any one of us in Sainsbury’s management will be happy to provide it.',
+  },
+  {
     name: '',
-    title: "Manager @ Sainsbury's",
-    avatar: '/images/testimonials/sainsburys-logo.png',
+    title: '',
+    avatar: '',
     testimonial: '',
   },
   {
@@ -13,19 +20,13 @@ export const testimonials = [
   },
   {
     name: '',
-    title: 'Professor @ York St. John',
-    avatar: '/images/testimonials/ysj-logo.png',
-    testimonial: '',
-  },
-  {
-    name: '',
     title: '',
     avatar: '',
     testimonial: '',
   },
   {
     name: '',
-    title: 'Student @ University of York',
+    title: '',
     avatar: '',
     testimonial: '',
   },

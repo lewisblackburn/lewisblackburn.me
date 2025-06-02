@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import localFont from 'next/font/local'
 
-import '../styles/globals.css'
+import '@/styles/globals.css'
 
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { Toaster } from 'sonner'

@@ -20,18 +20,12 @@ export function About() {
 
       <div className='flex flex-col justify-between lg:flex-row'>
         <p className='my-8 text-neutral-600 dark:text-neutral-400 lg:w-6/12 lg:text-lg'>
-          In my free time, I'm usually meddling in web development, crafting new blog posts, or rowing. I'm currently
-          trying to become fluent in Swedish. A fun fact about me is that my favourite TV shows are the ones that tell
-          you when to laugh!
-          <br />
-          <br />
-          Apart from being a full-time comedian, I'm creating an entertainment database app in my free-time. It aims to
-          be a user-maintained place to share films, shows, books, music, and much more.
-          <br />
-          <br />
-          Currently, I am also working as a freelance web developer for Drive2Learn.
-          <br />
-          <br />
+          I recently graduated from York St John University with a bachelor’s degree in computer science (first‑class
+          hons, 2025). I consider myself to be an ambitious, hard‑working individual who is passionate about web
+          development. I have real‑world experience building websites as a freelance web developer and have completed
+          numerous work placement sessions throughout my time in education and outside education with online courses
+          related to the industry. I am seeking a junior software engineering role where I can develop my personal
+          skills, be surrounded by those who love development as much as I do, and to grow alongside senior developers
         </p>
         <div className='mt-8 h-full lg:w-5/12'>
           <div className='grid grid-flow-row grid-cols-2 gap-6 lg:gap-8'>
