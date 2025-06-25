@@ -96,12 +96,12 @@ type ContactLinks = {
 export const ContactLinks: ContactLinks = [
   {
     name: 'Business',
-    mailto: 'hi@lewisblackburn.me',
+    mailto: 'lewisblackburn10@gmail.com',
     icon: 'email',
   },
   {
     name: 'Enquiries',
-    mailto: 'askme@lewisblackburn.me',
+    mailto: 'lewisjablackburn@gmail.com',
     icon: 'question',
   },
 ]
