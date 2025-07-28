@@ -91,7 +91,7 @@ export function DrawerContent({ children, className }: DrawerContentProps) {
                         exit={{ y: "100%", opacity: 0 }}
                         transition={{
                             duration: 0.25,
-                            ease: [0.25, 0.46, 0.45, 0.94]
+                            ease: [0.16, 1, 0.3, 1]
                         }}
                         className={cn(
                             "fixed bottom-3 left-0 right-0 bg-background border-t border-border rounded-lg z-50 max-h-[70vh] overflow-hidden w-[95%] mx-auto flex flex-col",

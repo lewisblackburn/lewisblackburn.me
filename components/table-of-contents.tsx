@@ -126,12 +126,32 @@ export function TableOfContents({ className }: TableOfContentsProps) {
     };
   }, [headings, activeId]);
 
-  const handleClick = (id: string) => {
+  const handleClick = async (id: string) => {
+    const url = `${window.location.origin}${window.location.pathname}#${id}`;
+
+    window.history.pushState({}, '', `#${id}`);
+
+    try {
+      await navigator.clipboard.writeText(url);
+    } catch (err) {
+      console.error(err);
+      const textArea = document.createElement("textarea");
+      textArea.value = url;
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand("copy");
+      document.body.removeChild(textArea);
+    }
+
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({
+      const offset = 80;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
         behavior: "smooth",
-        block: "start",
       });
     }
   };

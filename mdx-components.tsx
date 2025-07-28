@@ -14,26 +14,14 @@ import {
 } from "@/components/ui/accordion";
 import { AuthorCard } from "@/components/author-card";
 import { getAuthor, type AuthorKey } from "@/lib/authors";
-
-function generateSlug(text: string): string {
-  return text
-    .toLowerCase()
-    .replace(/[^a-z0-9\s-]/g, "")
-    .replace(/\s+/g, "-")
-    .trim();
-}
+import { CopyHeader } from "@/components/copy-header";
 
 const createHeading = (level: number) => {
   const Heading = ({
     children,
     ...props
   }: React.HTMLAttributes<HTMLHeadingElement>) => {
-    const text = typeof children === "string" ? children : "";
-    const id = generateSlug(text);
-
-    const HeadingTag = `h${level}` as "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
-
-    return React.createElement(HeadingTag, { id, ...props }, children);
+    return <CopyHeader level={level} {...props}>{children}</CopyHeader>;
   };
 
   Heading.displayName = `Heading${level}`;
