@@ -50,20 +50,20 @@ export default async function HomePage({
   });
 
   const allTags = [
-    "overview",
+    "All",
     ...Array.from(
       new Set(sortedBlogs.flatMap((blog) => blog.data.tags || []))
     ).sort(),
   ];
 
-  const selectedTag = resolvedSearchParams.tag || "overview";
+  const selectedTag = resolvedSearchParams.tag || "All";
   const filteredBlogs =
-    selectedTag === "overview"
+    selectedTag === "All"
       ? sortedBlogs
       : sortedBlogs.filter((blog) => blog.data.tags?.includes(selectedTag));
 
   const tagCounts = allTags.reduce((acc, tag) => {
-    if (tag === "overview") {
+    if (tag === "All") {
       acc[tag] = sortedBlogs.length;
     } else {
       acc[tag] = sortedBlogs.filter((blog) =>

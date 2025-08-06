@@ -2,7 +2,13 @@
 
 import { useRouter, usePathname } from "next/navigation";
 import { ChevronDown } from "lucide-react";
-import { Drawer, DrawerTrigger, DrawerContent, DrawerHeader, DrawerBody } from "@/components/ui/drawer";
+import {
+  Drawer,
+  DrawerTrigger,
+  DrawerContent,
+  DrawerHeader,
+  DrawerBody,
+} from "@/components/ui/drawer";
 
 interface TagFilterProps {
   tags: string[];
@@ -16,7 +22,7 @@ export function TagFilter({ tags, selectedTag, tagCounts }: TagFilterProps) {
 
   const handleTagClick = (tag: string) => {
     const params = new URLSearchParams();
-    if (tag !== "overview") {
+    if (tag !== "All") {
       params.set("tag", tag);
     }
     router.push(`${pathname}?${params.toString()}`);
@@ -28,18 +34,20 @@ export function TagFilter({ tags, selectedTag, tagCounts }: TagFilterProps) {
         <button
           key={tag}
           onClick={() => handleTagClick(tag)}
-          className={`h-8 flex items-center px-1 pl-3 rounded-lg cursor-pointer border text-sm transition-colors ${selectedTag === tag
-            ? "border-primary bg-primary text-primary-foreground"
-            : "border-border hover:bg-muted"
-            }`}
+          className={`h-8 flex items-center px-1 pl-3 rounded-lg cursor-pointer border text-sm transition-colors ${
+            selectedTag === tag
+              ? "border-primary bg-primary text-primary-foreground"
+              : "border-border hover:bg-muted"
+          }`}
         >
           <span>{tag}</span>
           {tagCounts?.[tag] && (
             <span
-              className={`ml-2 text-xs border rounded-md h-6 min-w-6 font-medium flex items-center justify-center ${selectedTag === tag
-                ? "border-border/40 dark:border-primary-foreground bg-background text-primary"
-                : "border-border dark:border-border"
-                }`}
+              className={`ml-2 text-xs border rounded-md h-6 min-w-6 font-medium flex items-center justify-center ${
+                selectedTag === tag
+                  ? "border-border/40 dark:border-primary-foreground bg-background text-primary"
+                  : "border-border dark:border-border"
+              }`}
             >
               {tagCounts[tag]}
             </span>
@@ -70,10 +78,11 @@ export function TagFilter({ tags, selectedTag, tagCounts }: TagFilterProps) {
                 className="w-full flex items-center justify-between font-medium cursor-pointer text-sm transition-colors"
               >
                 <span
-                  className={`w-full flex items-center justify-between font-medium cursor-pointer text-sm transition-colors ${selectedTag === tag
-                    ? "underline underline-offset-4 text-primary"
-                    : "text-muted-foreground"
-                    }`}
+                  className={`w-full flex items-center justify-between font-medium cursor-pointer text-sm transition-colors ${
+                    selectedTag === tag
+                      ? "underline underline-offset-4 text-primary"
+                      : "text-muted-foreground"
+                  }`}
                 >
                   {tag}
                 </span>
