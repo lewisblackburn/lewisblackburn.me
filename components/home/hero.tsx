@@ -11,6 +11,7 @@ import { Button } from '../ui/button'
 import GridIconTwo from '/public/images/home/edge-of-gaping-gill.webp'
 import GridWideImage from '/public/images/home/hike.webp'
 import GridIconThree from '/public/images/home/top-of-ingelborough.webp'
+import BallysIcon from '/public/images/testimonials/ballys-interactive.png'
 
 export function Hero() {
   return (
@@ -24,34 +25,34 @@ export function Hero() {
 
             <div className='my-6 space-y-2'>
               <h2 className='flex flex-wrap items-center justify-center gap-4 text-sm font-medium leading-8 md:text-base'>
-                web developer
+                software engineer
                 <span>@</span>
-                {/* <Button variant='secondary' size={'sm'} className='border bg-muted px-2' asChild>
+                <Button variant='secondary' size={'sm'} className='border bg-muted px-2' asChild>
                   <Link
-                    href={UtmUrl('https://jmdccb.vercel.app', {
+                    href={UtmUrl('https://careers.ballysinteractive.com/', {
                       medium: UtmMediums.Homepage,
                       content: 'hero',
                     })}>
                     <Image
-                      src={JmdccbIcon}
-                      alt='JMDCCB logo'
+                      src={BallysIcon}
+                      alt='Ballys Interactive logo'
                       width={18}
                       height={18}
                       className='mr-2 inline-block rounded-sm'
                     />
-                    JM Developments
+                    Bally's Interactive
                   </Link>
-                </Button> */}
-                <Button variant='secondary' size={'sm'} className='border bg-muted px-2' asChild>
+                </Button>
+                {/* <Button variant='secondary' size={'sm'} className='border bg-muted px-2' asChild>
                   <Link
-                    href={UtmUrl('https://drive2learn.co.uk', {
+                    href={UtmUrl('', {
                       medium: UtmMediums.Homepage,
                       content: 'hero',
                     })}>
                     <Icon name='car' width={20} height={20} className='mr-2 inline-block rounded-sm text-red-500' />
-                    Drive 2 Learn
+                    Bally's Interactive
                   </Link>
-                </Button>
+                </Button> */}
               </h2>
             </div>
 
