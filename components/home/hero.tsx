@@ -6,7 +6,6 @@ import { UtmUrl } from '@/utils/urls'
 
 import { UtmMediums } from '@/types/links'
 
-import { Icon } from '../icon'
 import { Button } from '../ui/button'
 import GridIconTwo from '/public/images/home/edge-of-gaping-gill.webp'
 import GridWideImage from '/public/images/home/hike.webp'
