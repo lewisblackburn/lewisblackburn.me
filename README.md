@@ -17,7 +17,7 @@ A modern, responsive blog built with Next.js 15, Fumadocs MDX, and Tailwind CSS.
 ```bash
 # Clone the repository
 git clone <repo-url>
-cd magicui-blog
+cd blog-template
 
 # Install dependencies
 pnpm install
