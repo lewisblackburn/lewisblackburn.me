@@ -51,21 +51,16 @@ export default function Footer() {
                                 General
                             </h3>
                             <ul className="space-y-3 text-sm">
-                                <li className="hover:text-primary font-medium">
-                                    <Link href="/">Home</Link>
-                                </li>
-                                <li className="hover:text-primary font-medium">
-                                    <Link href="/blog">Blog</Link>
-                                </li>
-                                <li className="hover:text-primary font-medium">
-                                    <Link href="/projects">Projects</Link>
-                                </li>
-                                <li className="hover:text-primary font-medium">
-                                    <Link href="/shorts">Shorts</Link>
-                                </li>
-                                <li className="hover:text-primary font-medium">
-                                    <Link href="/about">About</Link>
-                                </li>
+                                {siteConfig.navigation.map((item) => (
+                                    <li
+                                        key={item.href}
+                                        className="hover:text-primary font-medium"
+                                    >
+                                        <Link href={item.href}>
+                                            {item.title}
+                                        </Link>
+                                    </li>
+                                ))}
                             </ul>
                         </div>
                         <div>
