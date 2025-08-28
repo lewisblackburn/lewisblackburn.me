@@ -14,7 +14,7 @@ export default function Header({ title, subtitle, icon }: HeaderProps) {
     const { theme } = useTheme()
 
     return (
-        <div className="bg-background relative flex justify-center border-b">
+        <div className="bg-background relative flex justify-center">
             <div className="absolute top-0 left-0 z-0 w-full h-[150px] [mask-image:linear-gradient(to_top,transparent_25%,black_95%)]">
                 <FlickeringGrid
                     className="absolute top-0 left-0 size-full"

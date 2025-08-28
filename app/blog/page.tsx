@@ -87,7 +87,12 @@ export default async function BlogPage({
                 subtitle="Thoughts, mental models, and tutorials about front-end development."
             />
 
-            <BlurFade delay={0.1 * 4} inView direction="up">
+            <BlurFade
+                delay={0.1 * 4}
+                inView
+                direction="up"
+                className="border-t"
+            >
                 <div className="max-w-7xl mx-auto w-full px-6">
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                         <div className="lg:col-span-2 border-x border-border/50 px-8 py-12">
