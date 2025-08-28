@@ -1,12 +1,9 @@
-import Header from '@/components/header'
 import { AnimatedShinyText } from '@/components/magicui/animated-shiny-text'
 import { BlurFade } from '@/components/magicui/blur-fade'
-import { ShinyButton } from '@/components/magicui/shiny-button'
 import { Button } from '@/components/ui/button'
 import { siteConfig } from '@/lib/site'
 import { cn } from '@/lib/utils'
-import { Ri24HoursFill } from '@remixicon/react'
-import { ArrowDown, ArrowRightIcon, ChevronDown } from 'lucide-react'
+import { ArrowRightIcon, ChevronDown } from 'lucide-react'
 import Link from 'next/link'
 
 export default async function HomePage() {

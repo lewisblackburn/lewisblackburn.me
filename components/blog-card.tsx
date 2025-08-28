@@ -1,7 +1,7 @@
+import { RiTimeFill } from '@remixicon/react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Badge } from './ui/badge'
-import { RiTimeFill } from '@remixicon/react'
 
 interface BlogCardProps {
     url: string
