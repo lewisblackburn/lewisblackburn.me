@@ -4,17 +4,11 @@ import { createMDXSource } from 'fumadocs-mdx'
 import { Suspense } from 'react'
 import { BlogCard } from '@/components/blog-card'
 import { TagFilter } from '@/components/tag-filter'
-import { FlickeringGrid } from '@/components/magicui/flickering-grid'
 import Header from '@/components/header'
 import { BlurFade } from '@/components/magicui/blur-fade'
 import SortBySelect from '@/components/sort-by'
 import { Label } from '@/components/ui/label'
-import {
-    RiBook2Fill,
-    RiBook3Fill,
-    RiBookFill,
-    RiProfileFill,
-} from '@remixicon/react'
+import { RiBook2Fill } from '@remixicon/react'
 
 interface BlogData {
     title: string
@@ -99,7 +93,7 @@ export default async function BlogPage({
                         <div className="lg:col-span-2 border-x border-border/50 px-8 py-12">
                             <Suspense fallback={<div>Loading articles...</div>}>
                                 <div className="grid grid-cols-1 gap-8">
-                                    {filteredBlogs.map((blog) => {
+                                    {filteredBlogs.map((blog, index) => {
                                         const date = new Date(blog.data.date)
                                         const formattedDate = formatDate(date)
 
@@ -113,6 +107,12 @@ export default async function BlogPage({
                                                 }
                                                 date={formattedDate}
                                                 thumbnail={blog.data.thumbnail}
+                                                tags={blog.data.tags}
+                                                readTime={blog.data.readTime}
+                                                showDivider={
+                                                    index !==
+                                                    filteredBlogs.length - 1
+                                                }
                                             />
                                         )
                                     })}

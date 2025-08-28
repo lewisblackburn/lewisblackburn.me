@@ -3,8 +3,6 @@ import { useTheme } from 'next-themes'
 import { BlurFade } from './magicui/blur-fade'
 import { FlickeringGrid } from './magicui/flickering-grid'
 import { ShineBorder } from './magicui/shine-border'
-import { GridPattern } from './magicui/grid-pattern'
-import { DotPattern } from './magicui/dot-pattern'
 
 interface HeaderProps {
     icon: React.ReactNode
