@@ -1,8 +1,8 @@
 export const siteConfig = {
-  name: "Magic UI Blog",
-  url: "https://blog-magicui.vercel.app",
+  name: "Lewis Blackburn",
+  url: "https://lewisblackburn.me",
   description:
-    "Modern React and web development tutorials, insights, and best practices.",
+    "Lewis Blackburn is a freelance web developer based in The UK.",
 };
 
 export type SiteConfig = typeof siteConfig;

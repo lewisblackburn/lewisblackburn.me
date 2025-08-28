@@ -51,12 +51,12 @@ export async function generateMetadata({
       ],
       authors: [
         {
-          name: page.data.author || "Magic UI",
+          name: page.data.author || "Lewis Blackburn",
           url: siteConfig.url,
         },
       ],
-      creator: page.data.author || "Magic UI",
-      publisher: "Magic UI",
+      creator: page.data.author || "Lewis Blackburn",
+      publisher: "Lewis Blackburn",
       robots: {
         index: true,
         follow: true,
@@ -74,7 +74,7 @@ export async function generateMetadata({
         type: "article",
         url: ogUrl,
         publishedTime: page.data.date,
-        authors: [page.data.author || "Magic UI"],
+        authors: [page.data.author || "Lewis Blackburn"],
         tags: page.data.tags,
         images: [
           {
@@ -91,8 +91,8 @@ export async function generateMetadata({
         title: page.data.title,
         description: page.data.description,
         images: [page.data.thumbnail || ogImage],
-        creator: "@dillionverma",
-        site: "@dillionverma",
+        creator: "@zxffo",
+        site: "@zxffo",
       },
       alternates: {
         canonical: ogUrl,
