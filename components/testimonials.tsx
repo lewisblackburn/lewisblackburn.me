@@ -12,6 +12,7 @@ import { Avatar, AvatarImage } from '@/components/ui/avatar'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
+import { Container } from '@/components/ui/container'
 import { Testimonial, testimonials } from '@/lib/testimonials'
 
 const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
@@ -129,7 +130,7 @@ export default function Testimonials() {
 
     return (
         <section className="py-32">
-            <div className="max-w-7xl mx-auto w-full">
+            <Container>
                 <div className="my-4 flex justify-center">
                     <Badge
                         variant="outline"
@@ -170,7 +171,7 @@ export default function Testimonials() {
                         <ChevronRight className="text-muted-foreground/80 h-4 w-4" />
                     </Button>
                 </div>
-            </div>
+            </Container>
         </section>
     )
 }

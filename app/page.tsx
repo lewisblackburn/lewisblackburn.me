@@ -3,6 +3,7 @@ import { BlurFade } from '@/components/magicui/blur-fade'
 import { SocialIcons } from '@/components/social-icons'
 import Testimonials from '@/components/testimonials'
 import { Button } from '@/components/ui/button'
+import { Container } from '@/components/ui/container'
 import { siteConfig } from '@/lib/site'
 import { cn } from '@/lib/utils'
 import { ArrowRightIcon, ChevronDown } from 'lucide-react'
@@ -12,7 +13,7 @@ export default async function HomePage() {
     return (
         <div className="bg-background relative">
             <section className="flex items-center min-h-fd-container">
-                <div className="max-w-7xl mx-auto w-full px-6 space-y-12">
+                <Container className="space-y-12">
                     <BlurFade delay={0.1} inView direction="up">
                         <Link
                             href="https://www.ballys.com/"
@@ -78,7 +79,7 @@ export default async function HomePage() {
                     <BlurFade delay={0.1 * 5} inView direction="up">
                         <SocialIcons iconClassName="size-5" />
                     </BlurFade>
-                </div>
+                </Container>
             </section>
 
             {/* Other sections can go here and will flow naturally */}
@@ -86,7 +87,7 @@ export default async function HomePage() {
                 id="how"
                 className="flex items-center justify-center min-h-fd-container"
             >
-                <div className="max-w-7xl mx-auto w-full px-6">test</div>
+                <Container>test</Container>
             </section>
 
             <Testimonials />

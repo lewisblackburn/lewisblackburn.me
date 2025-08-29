@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from 'react'
 import { cn } from '@/lib/utils'
 
 import { Badge } from '@/components/ui/badge'
+import { Container } from '@/components/ui/container'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { experienceData } from '@/lib/experience'
 import { Briefcase } from 'lucide-react'
@@ -82,7 +83,7 @@ export default function Experience() {
                 </h3>
             </div>
 
-            <div className="relative max-w-7xl mx-auto flex flex-col lg:flex-row">
+            <Container className="relative flex flex-col lg:flex-row">
                 {/* Scrollspy sidebar */}
                 <div className="sticky top-24 hidden h-fit w-72 overflow-visible pr-10 lg:block">
                     <ScrollArea className="h-[calc(100vh-300px)]">
@@ -180,7 +181,7 @@ export default function Experience() {
                         ))}
                     </div>
                 </div>
-            </div>
+            </Container>
         </section>
     )
 }

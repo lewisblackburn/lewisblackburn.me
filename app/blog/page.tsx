@@ -7,6 +7,7 @@ import { TagFilter } from '@/components/tag-filter'
 import Header from '@/components/header'
 import { BlurFade } from '@/components/magicui/blur-fade'
 import SortBySelect from '@/components/sort-by'
+import { Container } from '@/components/ui/container'
 import { Label } from '@/components/ui/label'
 import { RiBook2Fill } from '@remixicon/react'
 
@@ -93,7 +94,7 @@ export default async function BlogPage({
                 direction="up"
                 className="border-t"
             >
-                <div className="max-w-7xl mx-auto w-full px-6">
+                <Container>
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                         <div className="lg:col-span-2 border-x border-border/50 px-8 py-12">
                             <Suspense fallback={<div>Loading articles...</div>}>
@@ -138,7 +139,7 @@ export default async function BlogPage({
                             </div>
                         </div>
                     </div>
-                </div>
+                </Container>
             </BlurFade>
         </div>
     )

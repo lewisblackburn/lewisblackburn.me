@@ -1,4 +1,5 @@
 'use client'
+import { Container } from '@/components/ui/container'
 import { IconButton } from '@/components/ui/icon-button'
 import { BlurFade } from './magicui/blur-fade'
 import { FlickeringGrid } from './magicui/flickering-grid'
@@ -23,7 +24,7 @@ export default function Header({ title, subtitle, icon }: HeaderProps) {
                 />
             </div>
             <div className="p-6 flex flex-col gap-6 min-h-[350px] justify-center relative z-10">
-                <div className="max-w-7xl mx-auto w-full">
+                <Container>
                     <div className="flex flex-col items-center gap-5">
                         <BlurFade delay={0.1} inView direction="up">
                             <IconButton icon={icon} />
@@ -41,7 +42,7 @@ export default function Header({ title, subtitle, icon }: HeaderProps) {
                             </p>
                         </BlurFade>
                     </div>
-                </div>
+                </Container>
             </div>
         </div>
     )

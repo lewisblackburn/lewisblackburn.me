@@ -1,9 +1,10 @@
+import { Container } from '@/components/ui/container'
 import Image from 'next/image'
 
 export default function AboutMe() {
     return (
         <section className="py-32">
-            <div className="max-w-7xl mx-auto px-4">
+            <Container>
                 <div className="flex flex-col items-center justify-start gap-6 lg:flex-row">
                     <div className="flex w-full flex-col items-start justify-start gap-24 lg:w-1/2">
                         <div className="pr-6">
@@ -105,7 +106,7 @@ export default function AboutMe() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </Container>
         </section>
     )
 }

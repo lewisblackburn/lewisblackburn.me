@@ -26,8 +26,8 @@ export function BlogCard({
 }: BlogCardProps) {
     return (
         <Link href={url}>
-            <div className="grid grid-cols-7 gap-6">
-                <div className="col-span-5">
+            <div className="grid grid-cols-6 gap-6">
+                <div className="col-span-4">
                     <time className="block text-sm font-medium text-muted-foreground">
                         {date}
                     </time>

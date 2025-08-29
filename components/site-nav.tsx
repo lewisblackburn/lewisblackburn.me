@@ -1,12 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from 'next/link'
 import { AnimatedThemeToggler } from './animated-theme-toggler'
+import { Container } from '@/components/ui/container'
 import { siteConfig } from '@/lib/site'
 
 export function SiteNav() {
     return (
         <header className="sticky top-0 z-20 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-            <div className="max-w-7xl mx-auto w-full flex h-14 items-center justify-between px-6">
+            <Container className="flex h-14 items-center justify-between">
                 <nav className="flex items-center space-x-6">
                     {siteConfig.navigation.map((item) => (
                         <Link
@@ -23,7 +24,7 @@ export function SiteNav() {
                         <AnimatedThemeToggler />
                     </nav>
                 </div>
-            </div>
+            </Container>
         </header>
     )
 }
