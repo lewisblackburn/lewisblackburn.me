@@ -1,8 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
-import Link from 'next/link'
-import { AnimatedThemeToggler } from './animated-theme-toggler'
 import { Container } from '@/components/ui/container'
 import { siteConfig } from '@/lib/site'
+import Link from 'next/link'
+import { AnimatedThemeToggler } from './animated-theme-toggler'
 
 export function SiteNav() {
     return (

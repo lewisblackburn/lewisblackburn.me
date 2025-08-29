@@ -1,6 +1,7 @@
 'use client'
 
 import { cn } from '@/lib/utils'
+import { useState } from 'react'
 
 import { Badge } from '@/components/ui/badge'
 import { Container } from '@/components/ui/container'
@@ -10,6 +11,8 @@ import { Briefcase } from 'lucide-react'
 import { IconButton } from './ui/icon-button'
 
 export default function Experience() {
+    const [activeSection, setActiveSection] = useState(0)
+
     return (
         <section className="bg-background relative py-24 md:py-32 space-y-24">
             <div className="flex flex-col items-center gap-5">
@@ -33,9 +36,12 @@ export default function Experience() {
                                     <a
                                         key={index}
                                         href={`#entry-${index}`}
+                                        onClick={() => setActiveSection(index)}
                                         className={cn(
                                             'group flex flex-col gap-2 rounded-md border border-transparent px-3 py-2 text-left transition-all hover:border-border hover:bg-accent hover:text-foreground',
-                                            'text-muted-foreground'
+                                            activeSection === index
+                                                ? 'border-border bg-accent text-foreground'
+                                                : 'text-muted-foreground'
                                         )}
                                     >
                                         <span className="text-sm">
@@ -89,9 +95,9 @@ export default function Experience() {
                                                         (item, itemIndex) => (
                                                             <li
                                                                 key={itemIndex}
-                                                                className="flex items-start"
+                                                                className="flex items-center"
                                                             >
-                                                                <span className="mt-1 mr-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                                                                <span className="mr-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
                                                                 <span>
                                                                     {item}
                                                                 </span>
