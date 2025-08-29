@@ -6,7 +6,7 @@ import Link from 'next/link'
 export default function Footer() {
     return (
         <section className="bg-background border-t">
-            <Container className="p-12">
+            <Container className="py-12">
                 <div className="flex w-full flex-col justify-between gap-10 lg:flex-row lg:items-start lg:text-left">
                     <div className="flex w-full flex-col justify-between gap-4 lg:items-start">
                         <div className="flex items-center gap-2 lg:justify-start">

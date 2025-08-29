@@ -7,9 +7,9 @@ import {
     FileText,
     Heart,
     Menu,
+    Swords,
     Target,
     X,
-    Zap,
 } from 'lucide-react'
 import { useState } from 'react'
 
@@ -103,7 +103,7 @@ export default function SiteNav() {
                                                 >
                                                     <div className="mb-4">
                                                         <div className="bg-primary/10 text-primary rounded-lg p-2 w-fit">
-                                                            <Zap className="h-5 w-5" />
+                                                            <Swords className="h-5 w-5" />
                                                         </div>
                                                     </div>
                                                     <div className="mt-auto">

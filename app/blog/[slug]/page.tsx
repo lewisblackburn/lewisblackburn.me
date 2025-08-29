@@ -17,6 +17,7 @@ import { ReadMoreSection } from '@/components/read-more-section'
 import { TableOfContents } from '@/components/table-of-contents'
 import { Container } from '@/components/ui/container'
 import { getAuthor, isValidAuthor } from '@/lib/authors'
+import { formatDate } from '@/lib/utils'
 
 interface PageProps {
     params: Promise<{ slug: string }>
@@ -26,14 +27,6 @@ const blogSource = loader({
     baseUrl: '/blog',
     source: createMDXSource(docs, meta),
 })
-
-const formatDate = (date: Date): string => {
-    return date.toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-    })
-}
 
 export default async function BlogPost({ params }: PageProps) {
     const { slug } = await params
