@@ -1,12 +1,6 @@
+import { SocialIcons } from '@/components/social-icons'
 import { siteConfig } from '@/lib/site'
-import {
-    RiGithubLine,
-    RiLinkedinLine,
-    RiMailLine,
-    RiTwitterLine,
-} from '@remixicon/react'
 import Link from 'next/link'
-import React from 'react'
 
 export default function Footer() {
     return (
@@ -22,28 +16,7 @@ export default function Footer() {
                         <p className="text-muted-foreground max-w-[70%] text-sm">
                             {siteConfig.description}
                         </p>
-                        <ul className="text-muted-foreground flex items-center space-x-4 mt-2">
-                            <li className="hover:text-primary font-medium">
-                                <Link href="" aria-label="LinkedIn">
-                                    <RiMailLine className="size-4" />
-                                </Link>
-                            </li>
-                            <li className="hover:text-primary font-medium">
-                                <Link href="" aria-label="LinkedIn">
-                                    <RiLinkedinLine className="size-4" />
-                                </Link>
-                            </li>
-                            <li className="hover:text-primary font-medium">
-                                <Link href="" aria-label="LinkedIn">
-                                    <RiGithubLine className="size-4" />
-                                </Link>
-                            </li>
-                            <li className="hover:text-primary font-medium">
-                                <Link href="" aria-label="LinkedIn">
-                                    <RiTwitterLine className="size-4" />
-                                </Link>
-                            </li>
-                        </ul>
+                        <SocialIcons />
                     </div>
                     <div className="grid w-full gap-6 md:grid-cols-3 lg:gap-20">
                         <div>

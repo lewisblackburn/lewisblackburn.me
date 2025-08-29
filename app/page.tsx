@@ -1,5 +1,7 @@
 import { AnimatedShinyText } from '@/components/magicui/animated-shiny-text'
 import { BlurFade } from '@/components/magicui/blur-fade'
+import { SocialIcons } from '@/components/social-icons'
+import Testimonials from '@/components/testimonials'
 import { Button } from '@/components/ui/button'
 import { siteConfig } from '@/lib/site'
 import { cn } from '@/lib/utils'
@@ -9,8 +11,8 @@ import Link from 'next/link'
 export default async function HomePage() {
     return (
         <div className="bg-background relative">
-            <section className="flex items-center justify-center min-h-fd-container">
-                <div className="max-w-7xl mx-auto w-full px-6">
+            <section className="flex items-center min-h-fd-container">
+                <div className="max-w-7xl mx-auto w-full px-6 space-y-12">
                     <BlurFade delay={0.1} inView direction="up">
                         <Link
                             href="https://www.ballys.com/"
@@ -49,31 +51,33 @@ export default async function HomePage() {
                             </p>
                         </BlurFade>
                     </div>
-                    <div className="mt-8 flex items-center gap-4">
-                        <BlurFade delay={0.1 * 4} inView direction="up">
-                            <div className="flex flex-wrap gap-4">
-                                <Link href="#how">
-                                    <Button
-                                        variant="secondary"
-                                        className="cursor-pointer"
-                                    >
-                                        <div className="flex items-center gap-2">
-                                            <span>Learn How</span>
-                                            <ChevronDown className="size-4" />
-                                        </div>
-                                    </Button>
-                                </Link>
-                                <Link href="/about">
-                                    <Button
-                                        variant="outline"
-                                        className="bg-background! cursor-pointer"
-                                    >
-                                        More about me
-                                    </Button>
-                                </Link>
-                            </div>
-                        </BlurFade>
-                    </div>
+                    <BlurFade delay={0.1 * 4} inView direction="up">
+                        <div className="flex flex-wrap gap-4 justify-start">
+                            <Link href="#how">
+                                <Button className="relative pe-12">
+                                    Learn How
+                                    <span className="bg-primary-foreground/15 pointer-events-none absolute inset-y-0 end-0 flex w-9 items-center justify-center">
+                                        <ChevronDown
+                                            className="opacity-60"
+                                            size={16}
+                                            aria-hidden="true"
+                                        />
+                                    </span>
+                                </Button>
+                            </Link>
+                            <Link href="/about">
+                                <Button
+                                    variant="outline"
+                                    className="bg-background! cursor-pointer"
+                                >
+                                    More about me
+                                </Button>
+                            </Link>
+                        </div>
+                    </BlurFade>
+                    <BlurFade delay={0.1 * 5} inView direction="up">
+                        <SocialIcons iconClassName="size-5" />
+                    </BlurFade>
                 </div>
             </section>
 
@@ -84,6 +88,8 @@ export default async function HomePage() {
             >
                 <div className="max-w-7xl mx-auto w-full px-6">test</div>
             </section>
+
+            <Testimonials />
         </div>
     )
 }
