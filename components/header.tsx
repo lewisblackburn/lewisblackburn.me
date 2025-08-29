@@ -1,8 +1,7 @@
 'use client'
-import { useTheme } from 'next-themes'
+import { IconButton } from '@/components/ui/icon-button'
 import { BlurFade } from './magicui/blur-fade'
 import { FlickeringGrid } from './magicui/flickering-grid'
-import { ShineBorder } from './magicui/shine-border'
 
 interface HeaderProps {
     icon: React.ReactNode
@@ -11,8 +10,6 @@ interface HeaderProps {
 }
 
 export default function Header({ title, subtitle, icon }: HeaderProps) {
-    const { theme } = useTheme()
-
     return (
         <div className="bg-background relative flex justify-center">
             <div className="absolute top-0 left-0 z-0 w-full h-[150px] [mask-image:linear-gradient(to_top,transparent_25%,black_95%)]">
@@ -29,16 +26,7 @@ export default function Header({ title, subtitle, icon }: HeaderProps) {
                 <div className="max-w-7xl mx-auto w-full">
                     <div className="flex flex-col items-center gap-5">
                         <BlurFade delay={0.1} inView direction="up">
-                            <div className="p-3 bg-accent rounded-lg">
-                                <ShineBorder
-                                    shineColor={
-                                        theme === 'dark' ? 'white' : 'black'
-                                    }
-                                />
-                                <div className="w-4 h-4 flex items-center justify-center">
-                                    {icon}
-                                </div>
-                            </div>
+                            <IconButton icon={icon} />
                         </BlurFade>
 
                         <BlurFade delay={0.1 * 2} inView direction="up">
