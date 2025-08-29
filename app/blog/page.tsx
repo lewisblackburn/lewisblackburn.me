@@ -1,15 +1,15 @@
 import { docs, meta } from '@/.source'
-import { loader } from 'fumadocs-core/source'
-import { createMDXSource } from 'fumadocs-mdx'
-import { Suspense } from 'react'
 import { BlogCard } from '@/components/blog-card'
-import { TagFilter } from '@/components/tag-filter'
 import Header from '@/components/header'
 import { BlurFade } from '@/components/magicui/blur-fade'
 import SortBySelect from '@/components/sort-by'
+import { TagFilter } from '@/components/tag-filter'
 import { Container } from '@/components/ui/container'
 import { Label } from '@/components/ui/label'
 import { RiBook2Fill } from '@remixicon/react'
+import { loader } from 'fumadocs-core/source'
+import { createMDXSource } from 'fumadocs-mdx'
+import { Suspense } from 'react'
 
 interface BlogData {
     title: string
@@ -94,9 +94,9 @@ export default async function BlogPage({
                 direction="up"
                 className="border-t"
             >
-                <Container>
+                <Container className="px-0 lg:px-8">
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                        <div className="lg:col-span-2 border-x border-border/50 px-8 py-12">
+                        <div className="lg:col-span-2 lg:border-x lg:border-border/50 px-4 lg:px-8 py-12">
                             <Suspense fallback={<div>Loading articles...</div>}>
                                 <div className="grid grid-cols-1 gap-8">
                                     {filteredBlogs.map((blog, index) => {
@@ -125,7 +125,7 @@ export default async function BlogPage({
                                 </div>
                             </Suspense>
                         </div>
-                        <div className="flex flex-col gap-8 py-12">
+                        <div className="hidden lg:flex flex-col gap-8 py-12">
                             <SortBySelect />
                             <div className="flex flex-col space-y-4">
                                 <Label>Choose a topic</Label>

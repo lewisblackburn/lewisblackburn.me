@@ -1,4 +1,3 @@
-import AboutMe from '@/components/about-me'
 import Experience from '@/components/experience'
 import Header from '@/components/header'
 import { BlurFade } from '@/components/magicui/blur-fade'
@@ -13,9 +12,9 @@ export default async function AboutPage() {
                 subtitle="A story of growth and discovery"
             />
 
-            <BlurFade delay={0.1 * 4} inView direction="up">
+            {/* <BlurFade delay={0.1 * 4} inView direction="up">
                 <AboutMe />
-            </BlurFade>
+            </BlurFade> */}
 
             <BlurFade delay={0.1 * 5} inView direction="up">
                 <Experience />
