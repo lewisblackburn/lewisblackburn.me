@@ -9,6 +9,8 @@ author: 'lewis'
 thumbnail: '/thumbnails/dynamic-prisma-contex-and-audit-logs.png'
 ---
 
+# Introduction
+
 Recently, I ran into a mountain of errors whilst trying to create a sophisticated audit log system using Prisma. It felt like every step I turned was the wrong one.
 I tried `$transaction` queries, Prisma clientExtensions and SQL triggers but there was always some kink that couldn't be ironed out. Whether it be the inability to access user context, unable to access before and after content or `$transaction` timeout errors.
 There was always something that couldn't be bypassed. Here's how I _eventually_ solved it.
@@ -53,6 +55,8 @@ export async function action({ request }: ActionFunctionArgs) {
     })
 }
 ```
+
+<br />
 
 # using SQL Triggers
 
@@ -365,6 +369,8 @@ fail.
 
 As you can see, I have also used a `totalEdits` column to store the total edits for efficiency
 rather than doing an aggregate query each time.
+
+# Conclusion
 
 Well, this is how I solved my audit log dilemma. However, as mentioned before, the client
 extensions won't have access to `$transaction` context and so it will result in a

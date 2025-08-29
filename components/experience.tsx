@@ -1,7 +1,5 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
-
 import { cn } from '@/lib/utils'
 
 import { Badge } from '@/components/ui/badge'
@@ -12,67 +10,6 @@ import { Briefcase } from 'lucide-react'
 import { IconButton } from './ui/icon-button'
 
 export default function Experience() {
-    const [activeId, setActiveId] = useState<number | null>(null)
-    const sectionRefs = useRef<Array<HTMLDivElement | null>>([])
-
-    useEffect(() => {
-        sectionRefs.current = sectionRefs.current.slice(
-            0,
-            experienceData.length
-        )
-
-        const handleScroll = () => {
-            const scrollPosition = window.scrollY + 100 // Adding offset to improve usability
-
-            // Find the section that is currently in view
-            const currentSectionIndex = sectionRefs.current.findIndex(
-                (ref, index) => {
-                    if (!ref) return false
-
-                    const nextRef = sectionRefs.current[index + 1]
-                    const refTop = ref.offsetTop
-                    const refBottom = nextRef
-                        ? nextRef.offsetTop
-                        : document.body.scrollHeight
-
-                    return (
-                        scrollPosition >= refTop && scrollPosition < refBottom
-                    )
-                }
-            )
-
-            if (currentSectionIndex !== -1) {
-                setActiveId(currentSectionIndex)
-            } else if (
-                scrollPosition < (sectionRefs.current[0]?.offsetTop || 0)
-            ) {
-                setActiveId(null)
-            }
-        }
-
-        window.addEventListener('scroll', handleScroll)
-        handleScroll() // Initialize on mount
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll)
-        }
-    }, [experienceData.length])
-
-    const scrollToSection = (index: number) => {
-        const sectionRef = sectionRefs.current[index]
-        if (sectionRef) {
-            window.scrollTo({
-                top: sectionRef.offsetTop - 80,
-                behavior: 'smooth',
-            })
-        }
-    }
-
-    // Correct way to set refs for linter
-    const setRef = (index: number) => (el: HTMLDivElement | null) => {
-        sectionRefs.current[index] = el
-    }
-
     return (
         <section className="bg-background relative py-24 md:py-32 space-y-24">
             <div className="flex flex-col items-center gap-5">
@@ -93,14 +30,12 @@ export default function Experience() {
                             </h3>
                             <nav className="flex flex-col space-y-2.5">
                                 {experienceData.map((entry, index) => (
-                                    <button
+                                    <a
                                         key={index}
-                                        onClick={() => scrollToSection(index)}
+                                        href={`#entry-${index}`}
                                         className={cn(
-                                            'group flex flex-col gap-2 rounded-md border border-transparent px-3 py-2 text-left transition-all hover:border-border hover:bg-accent',
-                                            activeId === index
-                                                ? 'border-border bg-accent font-medium text-foreground shadow-sm'
-                                                : 'text-muted-foreground'
+                                            'group flex flex-col gap-2 rounded-md border border-transparent px-3 py-2 text-left transition-all hover:border-border hover:bg-accent hover:text-foreground',
+                                            'text-muted-foreground'
                                         )}
                                     >
                                         <span className="text-sm">
@@ -109,7 +44,7 @@ export default function Experience() {
                                         <div className="flex items-center gap-2 text-xs text-muted-foreground">
                                             <span>{entry.period}</span>
                                         </div>
-                                    </button>
+                                    </a>
                                 ))}
                             </nav>
                         </div>
@@ -122,7 +57,6 @@ export default function Experience() {
                         {experienceData.map((entry, index) => (
                             <div
                                 key={index}
-                                ref={setRef(index)}
                                 className="relative flex flex-col gap-6 border-l-4 border-l-border/30 pl-6 transition-colors hover:border-l-border md:gap-8"
                                 id={`entry-${index}`}
                             >

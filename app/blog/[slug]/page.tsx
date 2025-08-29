@@ -13,7 +13,6 @@ import { HashScrollHandler } from '@/components/hash-scroll-handler'
 import { BlurFade } from '@/components/magicui/blur-fade'
 import { FlickeringGrid } from '@/components/magicui/flickering-grid'
 import { MobileTableOfContents } from '@/components/mobile-toc'
-import { PromoContent } from '@/components/promo-content'
 import { ReadMoreSection } from '@/components/read-more-section'
 import { TableOfContents } from '@/components/table-of-contents'
 import { Container } from '@/components/ui/container'
@@ -54,7 +53,7 @@ export default async function BlogPost({ params }: PageProps) {
     const formattedDate = formatDate(date)
 
     return (
-        <div className="min-h-screen bg-background relative">
+        <div className="bg-background relative">
             <HashScrollHandler />
             <div className="absolute top-0 left-0 z-0 w-full h-[200px] [mask-image:linear-gradient(to_top,transparent_25%,black_95%)]">
                 <FlickeringGrid
@@ -165,7 +164,7 @@ export default async function BlogPost({ params }: PageProps) {
                                 <div className="border border-border rounded-lg p-6 bg-card">
                                     <TableOfContents />
                                 </div>
-                                <PromoContent variant="desktop" />
+                                {/* <AdsPlaceholder /> */}
                             </div>
                         </aside>
                     </div>
