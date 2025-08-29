@@ -1,10 +1,10 @@
 'use client'
 
-import { Moon, Sun } from 'lucide-react'
-import { useRef, useEffect, useState } from 'react'
-import { flushSync } from 'react-dom'
-import { useTheme } from 'next-themes'
 import { cn } from '@/lib/utils'
+import { Moon, Sun } from 'lucide-react'
+import { useTheme } from 'next-themes'
+import { useEffect, useRef, useState } from 'react'
+import { flushSync } from 'react-dom'
 import { Button } from './ui/button'
 
 type props = {

@@ -32,7 +32,7 @@ export default function SiteNav() {
     const [open, setOpen] = useState(false)
 
     return (
-        <section className="relative inset-x-0 top-0 z-20">
+        <section className="bg-transparent relative inset-x-0 top-0 z-20">
             <Container className="px-4 lg:px-8">
                 <NavigationMenu className="w-full max-w-none">
                     <div className="flex w-full items-center justify-between gap-12 py-4">
