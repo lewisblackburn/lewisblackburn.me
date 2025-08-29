@@ -7,6 +7,7 @@ interface IconButtonProps {
     className?: string
     onClick?: () => void
     disabled?: boolean
+    shine?: boolean
 }
 
 export function IconButton({
@@ -14,6 +15,7 @@ export function IconButton({
     className = '',
     onClick,
     disabled = false,
+    shine = true,
 }: IconButtonProps) {
     const theme = useTheme()
     return (
@@ -23,9 +25,11 @@ export function IconButton({
                 onClick={onClick}
                 disabled={disabled}
             >
-                <ShineBorder
-                    shineColor={theme.theme === 'dark' ? 'white' : 'black'}
-                />
+                {shine && (
+                    <ShineBorder
+                        shineColor={theme.theme === 'dark' ? 'white' : 'black'}
+                    />
+                )}
                 <div className="w-4 h-4 flex items-center justify-center">
                     {icon}
                 </div>
