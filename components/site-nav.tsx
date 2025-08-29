@@ -32,8 +32,8 @@ export default function SiteNav() {
     const [open, setOpen] = useState(false)
 
     return (
-        <section className="bg-background relative inset-x-0 top-0 z-20">
-            <Container>
+        <section className="relative inset-x-0 top-0 z-20">
+            <Container className="px-4 lg:px-8">
                 <NavigationMenu className="w-full max-w-none">
                     <div className="flex w-full items-center justify-between gap-12 py-4">
                         <div className="flex items-center gap-8">
@@ -189,7 +189,7 @@ export default function SiteNav() {
                             </NavigationMenuList>
                         </div>
 
-                        <div className="flex items-center gap-4">
+                        <div className="flex items-center gap-2">
                             <Button variant="outline">
                                 Resume
                                 <FileText className="size-4" />

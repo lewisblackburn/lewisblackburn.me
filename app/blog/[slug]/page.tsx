@@ -10,7 +10,6 @@ import { notFound } from 'next/navigation'
 
 import { AuthorCard } from '@/components/author-card'
 import { HashScrollHandler } from '@/components/hash-scroll-handler'
-import { FlickeringGrid } from '@/components/magicui/flickering-grid'
 import { MobileTableOfContents } from '@/components/mobile-toc'
 import { ReadMoreSection } from '@/components/read-more-section'
 import { TableOfContents } from '@/components/table-of-contents'
@@ -51,20 +50,25 @@ export default async function BlogPost({ params }: PageProps) {
     const formattedDate = formatDate(date)
 
     return (
-        <div className="min-h-screen bg-background relative">
+        <div className="min-h-screen bg-background">
             <HashScrollHandler />
-            <div className="absolute top-0 left-0 z-0 w-full h-[200px] [mask-image:linear-gradient(to_top,transparent_25%,black_95%)]">
-                <FlickeringGrid
-                    className="absolute top-0 left-0 size-full"
-                    squareSize={4}
-                    gridGap={6}
-                    color="#6B7280"
-                    maxOpacity={0.2}
-                    flickerChance={0.05}
-                />
-            </div>
 
-            <div className="space-y-4 border-b border-border relative z-10">
+            {page.data.thumbnail && (
+                <div className="absolute top-0 left-0 w-full h-[200px] overflow-hidden">
+                    <Image
+                        src={page.data.thumbnail}
+                        alt={page.data.title}
+                        fill
+                        className="object-cover w-full h-full object-center"
+                        priority
+                        sizes="(max-width: 1024px) 100vw, 1200px"
+                    />
+                    {/* Fade-out effect at the bottom */}
+                    <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-background via-background/85 via-background/60 via-background/30 to-transparent pointer-events-none" />
+                </div>
+            )}
+
+            <div className="space-y-4 border-b border-border relative z-10 mt-[100px]">
                 <div className="max-w-7xl mx-auto flex flex-col gap-6 p-6">
                     <div className="flex flex-wrap items-center gap-3 gap-y-5 text-sm text-muted-foreground">
                         <Button variant="outline" asChild className="h-6 w-6">
@@ -106,18 +110,6 @@ export default async function BlogPost({ params }: PageProps) {
             <div className="flex divide-x divide-border relative max-w-7xl mx-auto px-4 md:px-0 z-10">
                 <div className="absolute max-w-7xl mx-auto left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] lg:w-full h-full border-x border-border p-0 pointer-events-none" />
                 <main className="w-full p-0 overflow-hidden">
-                    {page.data.thumbnail && (
-                        <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] overflow-hidden border border-transparent">
-                            <Image
-                                src={page.data.thumbnail}
-                                alt={page.data.title}
-                                fill
-                                className="object-cover"
-                                priority
-                                sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, (max-width: 1024px) 100vw, 100vw"
-                            />
-                        </div>
-                    )}
                     <div className="p-6 lg:p-10">
                         <div className="prose dark:prose-invert max-w-none prose-headings:scroll-mt-8 prose-headings:font-semibold prose-a:no-underline prose-headings:tracking-tight prose-headings:text-balance prose-p:tracking-tight prose-p:text-balance prose-lg">
                             <DocsBody>

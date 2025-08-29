@@ -2,7 +2,6 @@ import { docs, meta } from '@/.source'
 import { BlogCard } from '@/components/blog-card'
 import Header from '@/components/header'
 import { BlurFade } from '@/components/magicui/blur-fade'
-import SortBySelect from '@/components/sort-by'
 import { TagFilter } from '@/components/tag-filter'
 import { Container } from '@/components/ui/container'
 import { Label } from '@/components/ui/label'
@@ -126,7 +125,7 @@ export default async function BlogPage({
                             </Suspense>
                         </div>
                         <div className="hidden lg:flex flex-col gap-8 py-12">
-                            <SortBySelect />
+                            {/* <SortBySelect /> */}
                             <div className="flex flex-col space-y-4">
                                 <Label>Choose a topic</Label>
                                 {allTags.length > 0 && (
