@@ -42,21 +42,19 @@ export default function Footer() {
                                 The Website
                             </h3>
                             <ul className="space-y-3 text-sm">
-                                <li className="hover:text-primary font-medium">
-                                    <Link href="/bucket-list">Bucket List</Link>
-                                </li>
-                                <li className="hover:text-primary font-medium">
-                                    <Link href="/uses">Uses</Link>
-                                </li>
-                                <li className="hover:text-primary font-medium">
-                                    <Link href="/side-quests">Side Quests</Link>
-                                </li>
-                                <li className="hover:text-primary font-medium">
-                                    <Link href="/attribution">Attribution</Link>
-                                </li>
-                                <li className="hover:text-primary font-medium">
-                                    <Link href="/statistics">Statistics</Link>
-                                </li>
+                                {[
+                                    ...siteConfig.horizontalNav,
+                                    ...siteConfig.verticalNav,
+                                ].map((item) => (
+                                    <li
+                                        key={item.href}
+                                        className="hover:text-primary font-medium"
+                                    >
+                                        <Link href={item.href}>
+                                            {item.title}
+                                        </Link>
+                                    </li>
+                                ))}
                             </ul>
                         </div>
                         <div>

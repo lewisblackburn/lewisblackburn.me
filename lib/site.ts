@@ -1,3 +1,12 @@
+import {
+    BookOpen,
+    ChartArea,
+    Heart,
+    ListCheck,
+    Swords,
+    Wrench,
+} from 'lucide-react'
+
 export const siteConfig = {
     name: 'Lewis Blackburn',
     url: 'https://lewisblackburn.me',
@@ -25,7 +34,47 @@ export const siteConfig = {
         { title: 'Home', href: '/' },
         { title: 'Blog', href: '/blog' },
         { title: 'Projects', href: '/projects' },
-        { title: 'Shorts', href: '/shorts' },
+    ],
+    horizontalNav: [
+        {
+            title: 'Uses',
+            href: '/uses',
+            description: 'A list of hardware and software that I use',
+            icon: Wrench,
+        },
+        {
+            title: 'Bucket List',
+            href: '/bucket-list',
+            description:
+                'A list of things I want to do at least once in my life',
+            icon: ListCheck,
+        },
+        {
+            title: 'Side Quests',
+            href: '/side-quests',
+            description: 'New skills and adventures I have unlocked',
+            icon: Swords,
+        },
+    ],
+    verticalNav: [
+        {
+            title: 'Guest Book',
+            href: '/guestbook',
+            description: 'Leave a message or see what others have said',
+            icon: BookOpen,
+        },
+        {
+            title: 'Statistics',
+            href: '/statistics',
+            description: 'Site stats and interesting numbers',
+            icon: ChartArea,
+        },
+        {
+            title: 'Attribution',
+            href: '/attribution',
+            description: 'Credits and thanks to contributors and resources',
+            icon: Heart,
+        },
     ],
 }
 

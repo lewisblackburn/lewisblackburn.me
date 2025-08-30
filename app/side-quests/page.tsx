@@ -1,15 +1,20 @@
 import Header from '@/components/header'
 import { BlurFade } from '@/components/magicui/blur-fade'
 import Timeline from '@/components/timeline'
-import { Swords } from 'lucide-react'
+import { siteConfig } from '@/lib/site'
+import React from 'react'
 
 export default async function SideQuestsPage() {
+    const sideQuestsItem = siteConfig.horizontalNav.find(
+        (item) => item.title === 'Side Quests'
+    )!
+
     return (
         <div className="bg-background relative">
             <Header
-                icon={<Swords />}
-                title="Side Quests"
-                subtitle="New skills and adventures I have unlocked"
+                icon={React.createElement(sideQuestsItem.icon)}
+                title={sideQuestsItem.title}
+                subtitle={sideQuestsItem.description}
             />
 
             <BlurFade

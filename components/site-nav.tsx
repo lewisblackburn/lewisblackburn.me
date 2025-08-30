@@ -1,16 +1,6 @@
 'use client'
 
-import {
-    BookOpen,
-    Briefcase,
-    ChartArea,
-    FileText,
-    Heart,
-    Menu,
-    Swords,
-    Target,
-    X,
-} from 'lucide-react'
+import { FileText, Menu, X } from 'lucide-react'
 import { useState } from 'react'
 
 import { Button } from '@/components/ui/button'
@@ -56,132 +46,74 @@ export default function SiteNav() {
                                     <NavigationMenuContent className="!min-w-7xl">
                                         <div className="flex gap-4 p-4">
                                             <div className="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
-                                                <NavigationMenuLink
-                                                    href="/uses"
-                                                    className="group border-input bg-background hover:bg-accent hover:text-accent-foreground flex h-full flex-col overflow-clip rounded-lg border p-6 transition-all duration-200 hover:shadow-md hover:scale-[1.02]"
-                                                >
-                                                    <div className="mb-4">
-                                                        <div className="bg-primary/10 text-primary rounded-lg p-2 w-fit">
-                                                            <Briefcase className="h-5 w-5" />
-                                                        </div>
-                                                    </div>
-                                                    <div className="mt-auto">
-                                                        <div className="mb-2 text-lg font-semibold group-hover:text-primary transition-colors">
-                                                            Uses
-                                                        </div>
-                                                        <div className="text-muted-foreground text-sm font-normal leading-relaxed">
-                                                            A peek into my
-                                                            digital workspace
-                                                            and the tools I use
-                                                            daily
-                                                        </div>
-                                                    </div>
-                                                </NavigationMenuLink>
-                                                <NavigationMenuLink
-                                                    href="/bucket-list"
-                                                    className="group border-input bg-background hover:bg-accent hover:text-accent-foreground flex h-full flex-col overflow-clip rounded-lg border p-6 transition-all duration-200 hover:shadow-md hover:scale-[1.02]"
-                                                >
-                                                    <div className="mb-4">
-                                                        <div className="bg-primary/10 text-primary rounded-lg p-2 w-fit">
-                                                            <Target className="h-5 w-5" />
-                                                        </div>
-                                                    </div>
-                                                    <div className="mt-auto">
-                                                        <div className="mb-2 text-lg font-semibold group-hover:text-primary transition-colors">
-                                                            Bucket List
-                                                        </div>
-                                                        <div className="text-muted-foreground text-sm font-normal leading-relaxed">
-                                                            Things I want to do
-                                                            at least once in my
-                                                            lifetime
-                                                        </div>
-                                                    </div>
-                                                </NavigationMenuLink>
-                                                <NavigationMenuLink
-                                                    href="/side-quests"
-                                                    className="group border-input bg-background hover:bg-accent hover:text-accent-foreground flex h-full flex-col overflow-clip rounded-lg border p-6 transition-all duration-200 hover:shadow-md hover:scale-[1.02]"
-                                                >
-                                                    <div className="mb-4">
-                                                        <div className="bg-primary/10 text-primary rounded-lg p-2 w-fit">
-                                                            <Swords className="h-5 w-5" />
-                                                        </div>
-                                                    </div>
-                                                    <div className="mt-auto">
-                                                        <div className="mb-2 text-lg font-semibold group-hover:text-primary transition-colors">
-                                                            Side Quests
-                                                        </div>
-                                                        <div className="text-muted-foreground text-sm font-normal leading-relaxed">
-                                                            New skills and
-                                                            adventures I'm
-                                                            pursuing
-                                                        </div>
-                                                    </div>
-                                                </NavigationMenuLink>
+                                                {siteConfig.horizontalNav?.map(
+                                                    (item, index) => {
+                                                        const IconComponent =
+                                                            item.icon
+                                                        return (
+                                                            <NavigationMenuLink
+                                                                key={index}
+                                                                href={item.href}
+                                                                className="group border-input bg-background hover:bg-accent hover:text-accent-foreground flex h-full flex-col overflow-clip rounded-lg border p-6 transition-all duration-200 hover:shadow-md hover:scale-[1.02]"
+                                                            >
+                                                                <div className="mb-4">
+                                                                    <div className="bg-primary/10 text-primary rounded-lg p-2 w-fit">
+                                                                        {IconComponent && (
+                                                                            <IconComponent className="h-5 w-5" />
+                                                                        )}
+                                                                    </div>
+                                                                </div>
+                                                                <div className="mt-auto">
+                                                                    <div className="mb-2 text-lg font-semibold group-hover:text-primary transition-colors">
+                                                                        {
+                                                                            item.title
+                                                                        }
+                                                                    </div>
+                                                                    <div className="text-muted-foreground text-sm font-normal leading-relaxed">
+                                                                        {
+                                                                            item.description
+                                                                        }
+                                                                    </div>
+                                                                </div>
+                                                            </NavigationMenuLink>
+                                                        )
+                                                    }
+                                                )}
                                             </div>
                                             <div className="flex flex-col gap-3 min-w-[280px]">
-                                                <NavigationMenuLink
-                                                    href="/guestbook"
-                                                    className="group border-input bg-background hover:bg-accent hover:text-accent-foreground flex h-full flex-col overflow-clip rounded-lg border p-4 transition-all duration-200 hover:shadow-md hover:scale-[1.02]"
-                                                >
-                                                    <div className="flex gap-3 items-start">
-                                                        <div className="bg-primary/10 text-primary rounded-lg p-2 w-fit flex-shrink-0">
-                                                            <BookOpen className="h-4 w-4" />
-                                                        </div>
-                                                        <div className="flex flex-col gap-1 min-w-0">
-                                                            <div className="text-sm font-medium group-hover:text-primary transition-colors">
-                                                                Guest Book
-                                                            </div>
-                                                            <div className="text-muted-foreground text-xs font-normal leading-relaxed">
-                                                                Leave a message
-                                                                or see what
-                                                                others have said
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </NavigationMenuLink>
-
-                                                <NavigationMenuLink
-                                                    href="/statistics"
-                                                    className="group border-input bg-background hover:bg-accent hover:text-accent-foreground flex h-full flex-col overflow-clip rounded-lg border p-4 transition-all duration-200 hover:shadow-md hover:scale-[1.02]"
-                                                >
-                                                    <div className="flex gap-3 items-start">
-                                                        <div className="bg-primary/10 text-primary rounded-lg p-2 w-fit flex-shrink-0">
-                                                            <ChartArea className="h-4 w-4" />
-                                                        </div>
-                                                        <div className="flex flex-col gap-1 min-w-0">
-                                                            <div className="text-sm font-medium group-hover:text-primary transition-colors">
-                                                                Statistics
-                                                            </div>
-                                                            <div className="text-muted-foreground text-xs font-normal leading-relaxed">
-                                                                Site stats and
-                                                                interesting
-                                                                numbers
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </NavigationMenuLink>
-
-                                                <NavigationMenuLink
-                                                    href="/attribution"
-                                                    className="group border-input bg-background hover:bg-accent hover:text-accent-foreground flex h-full flex-col overflow-clip rounded-lg border p-4 transition-all duration-200 hover:shadow-md hover:scale-[1.02]"
-                                                >
-                                                    <div className="flex gap-3 items-start">
-                                                        <div className="bg-primary/10 text-primary rounded-lg p-2 w-fit flex-shrink-0">
-                                                            <Heart className="h-4 w-4" />
-                                                        </div>
-                                                        <div className="flex flex-col gap-1 min-w-0">
-                                                            <div className="text-sm font-medium group-hover:text-primary transition-colors">
-                                                                Attribution
-                                                            </div>
-                                                            <div className="text-muted-foreground text-xs font-normal leading-relaxed">
-                                                                Credits and
-                                                                thanks to
-                                                                contributors and
-                                                                resources
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </NavigationMenuLink>
+                                                {siteConfig.verticalNav?.map(
+                                                    (item, index) => {
+                                                        const IconComponent =
+                                                            item.icon
+                                                        return (
+                                                            <NavigationMenuLink
+                                                                key={index}
+                                                                href={item.href}
+                                                                className="group border-input bg-background hover:bg-accent hover:text-accent-foreground flex h-full flex-col overflow-clip rounded-lg border p-4 transition-all duration-200 hover:shadow-md hover:scale-[1.02]"
+                                                            >
+                                                                <div className="flex gap-3 items-start">
+                                                                    <div className="bg-primary/10 text-primary rounded-lg p-2 w-fit flex-shrink-0">
+                                                                        {IconComponent && (
+                                                                            <IconComponent className="h-4 w-4" />
+                                                                        )}
+                                                                    </div>
+                                                                    <div className="flex flex-col gap-1 min-w-0">
+                                                                        <div className="text-sm font-medium group-hover:text-primary transition-colors">
+                                                                            {
+                                                                                item.title
+                                                                            }
+                                                                        </div>
+                                                                        <div className="text-muted-foreground text-xs font-normal leading-relaxed">
+                                                                            {
+                                                                                item.description
+                                                                            }
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </NavigationMenuLink>
+                                                        )
+                                                    }
+                                                )}
                                             </div>
                                         </div>
                                     </NavigationMenuContent>
