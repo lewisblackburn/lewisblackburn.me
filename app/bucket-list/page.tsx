@@ -6,7 +6,7 @@ import { bucketList } from '@/lib/bucket-list'
 import { siteConfig } from '@/lib/site'
 import React from 'react'
 
-export default async function ProjectsPage() {
+export default async function BucketListPage() {
     const sortedBucketList = bucketList.sort((a, b) => {
         const yearA = a.year || 0
         const yearB = b.year || 0
