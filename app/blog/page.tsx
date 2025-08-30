@@ -98,7 +98,7 @@ export default async function BlogPage({
                         <div className="lg:col-span-2 lg:border-x lg:border-border/50 px-4 lg:px-8 py-12">
                             <Suspense fallback={<div>Loading articles...</div>}>
                                 <div className="grid grid-cols-1 gap-8">
-                                    {filteredBlogs.map((blog, index) => {
+                                    {filteredBlogs.map((blog) => {
                                         const date = new Date(blog.data.date)
                                         const formattedDate = formatDate(date)
 
@@ -114,10 +114,6 @@ export default async function BlogPage({
                                                 thumbnail={blog.data.thumbnail}
                                                 tags={blog.data.tags}
                                                 readTime={blog.data.readTime}
-                                                showDivider={
-                                                    index !==
-                                                    filteredBlogs.length - 1
-                                                }
                                             />
                                         )
                                     })}

@@ -22,10 +22,12 @@ export function BlogCard({
     thumbnail,
     tags,
     readTime,
-    showDivider = true,
 }: BlogCardProps) {
     return (
-        <Link href={url}>
+        <Link
+            href={url}
+            className="border-b border-border last:border-0 border-dashed pb-6"
+        >
             <div className="grid grid-cols-6 gap-6">
                 <div className="col-span-4">
                     <time className="block text-sm font-medium text-muted-foreground">
@@ -68,9 +70,6 @@ export function BlogCard({
                     </div>
                 )}
             </div>
-            {showDivider && (
-                <div className="col-span-5 border-b border-dashed border-border mt-4" />
-            )}
         </Link>
     )
 }
