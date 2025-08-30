@@ -129,7 +129,7 @@ export default function Testimonials() {
     }, [columnCount])
 
     return (
-        <section className="py-32">
+        <section className="bg-background relative py-24 md:py-32">
             <Container>
                 <div className="my-4 flex justify-center">
                     <Badge

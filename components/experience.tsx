@@ -14,7 +14,10 @@ export default function Experience() {
     const [activeSection, setActiveSection] = useState(0)
 
     return (
-        <section className="bg-background relative py-24 md:py-32 space-y-24">
+        <section
+            id="experience"
+            className="bg-background relative py-24 md:py-32 space-y-24"
+        >
             <div className="flex flex-col items-center gap-5">
                 <IconButton icon={<Briefcase />} />
 

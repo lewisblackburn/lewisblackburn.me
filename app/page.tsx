@@ -1,3 +1,4 @@
+import Experience from '@/components/experience'
 import { AnimatedShinyText } from '@/components/magicui/animated-shiny-text'
 import { BlurFade } from '@/components/magicui/blur-fade'
 import { SocialIcons } from '@/components/social-icons'
@@ -6,13 +7,14 @@ import { Button } from '@/components/ui/button'
 import { Container } from '@/components/ui/container'
 import { siteConfig } from '@/lib/site'
 import { cn } from '@/lib/utils'
+import { RiBook2Fill } from '@remixicon/react'
 import { ArrowRightIcon, ChevronDown } from 'lucide-react'
 import Link from 'next/link'
 
 export default async function HomePage() {
     return (
         <div className="bg-background relative">
-            <section className="flex items-center min-h-fd-container">
+            <section className="flex items-center min-h-screen -mt-24">
                 <Container className="space-y-12">
                     <BlurFade delay={0.1} inView direction="up">
                         <Link
@@ -54,9 +56,13 @@ export default async function HomePage() {
                     </div>
                     <BlurFade delay={0.1 * 4} inView direction="up">
                         <div className="flex flex-wrap gap-4 justify-start">
-                            <Link href="#how">
-                                <Button className="relative pe-12">
-                                    Learn How
+                            <Button
+                                className="relative pe-12"
+                                size="lg"
+                                asChild
+                            >
+                                <Link href="#experience">
+                                    Learn More
                                     <span className="bg-primary-foreground/15 pointer-events-none absolute inset-y-0 end-0 flex w-9 items-center justify-center">
                                         <ChevronDown
                                             className="opacity-60"
@@ -64,16 +70,18 @@ export default async function HomePage() {
                                             aria-hidden="true"
                                         />
                                     </span>
-                                </Button>
-                            </Link>
-                            <Link href="/about">
-                                <Button
-                                    variant="outline"
-                                    className="bg-background! cursor-pointer"
-                                >
-                                    More about me
-                                </Button>
-                            </Link>
+                                </Link>
+                            </Button>
+                            <Button variant="outline" size="lg" asChild>
+                                <Link href="/blog">
+                                    <RiBook2Fill
+                                        className="opacity-60"
+                                        size={16}
+                                        aria-hidden="true"
+                                    />
+                                    Read my blog
+                                </Link>
+                            </Button>
                         </div>
                     </BlurFade>
                     <BlurFade delay={0.1 * 5} inView direction="up">
@@ -82,14 +90,7 @@ export default async function HomePage() {
                 </Container>
             </section>
 
-            {/* Other sections can go here and will flow naturally */}
-            <section
-                id="how"
-                className="flex items-center justify-center min-h-fd-container"
-            >
-                <Container>test</Container>
-            </section>
-
+            <Experience />
             <Testimonials />
         </div>
     )

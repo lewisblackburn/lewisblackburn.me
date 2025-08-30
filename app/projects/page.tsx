@@ -2,6 +2,7 @@ import Header from '@/components/header'
 import { BlurFade } from '@/components/magicui/blur-fade'
 import ProjectCard from '@/components/project-card'
 import { Container } from '@/components/ui/container'
+import { projects } from '@/lib/projects'
 import { Folder } from 'lucide-react'
 
 export default async function ProjectsPage() {
@@ -22,19 +23,16 @@ export default async function ProjectsPage() {
                 <Container>
                     <section className="bg-background relative py-24 md:py-32">
                         <div className="grid grid-cols-1 gap-24">
-                            <ProjectCard
-                                title="Drive 2 Learn"
-                                description="A bespoke website developed for a driving instructor to enhance their online presence and streamline their business operations."
-                                image="/projects/drive2learn.png"
-                                repository="https://github.com/lewisblackburn/drive2learn"
-                                url="https://www.drive2learn.co.uk/"
-                            />
-                            <ProjectCard
-                                title="Metabase"
-                                description="A comprehensive database that brings together information about films, TV shows, books, people, and songs, all in one convenient platform. Just like popular services like TMDB or IMDb, Metabase provides a place for users to navigate, create and update their favourite media."
-                                image="/projects/metabase.png"
-                                repository="https://github.com/lewisblackburn/metabase"
-                            />
+                            {projects.map((project) => (
+                                <ProjectCard
+                                    key={project.title}
+                                    title={project.title}
+                                    description={project.description}
+                                    image={project.image}
+                                    repository={project.repository}
+                                    url={project.url}
+                                />
+                            ))}
                         </div>
                     </section>
                 </Container>
