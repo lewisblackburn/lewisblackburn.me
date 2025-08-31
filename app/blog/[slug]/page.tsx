@@ -4,7 +4,6 @@ import { loader } from 'fumadocs-core/source'
 import { createMDXSource } from 'fumadocs-mdx'
 import { DocsBody } from 'fumadocs-ui/page'
 import { ArrowLeft } from 'lucide-react'
-import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
@@ -53,22 +52,7 @@ export default async function BlogPost({ params }: PageProps) {
         <div className="min-h-screen bg-background">
             <HashScrollHandler />
 
-            {page.data.thumbnail && (
-                <div className="absolute top-0 left-0 w-full h-[200px] overflow-hidden">
-                    <Image
-                        src={page.data.thumbnail}
-                        alt={page.data.title}
-                        fill
-                        className="object-cover w-full h-full object-center"
-                        priority
-                        sizes="(max-width: 1024px) 100vw, 1200px"
-                    />
-                    {/* Fade-out effect at the bottom */}
-                    <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-background via-background/85 via-background/60 via-background/30 to-transparent pointer-events-none" />
-                </div>
-            )}
-
-            <div className="space-y-4 border-b border-border relative z-10 mt-[100px]">
+            <div className="space-y-4 border-y border-border relative z-10">
                 <div className="max-w-7xl mx-auto flex flex-col gap-6 p-6">
                     <div className="flex flex-wrap items-center gap-3 gap-y-5 text-sm text-muted-foreground">
                         <Button variant="outline" asChild className="h-6 w-6">
@@ -110,6 +94,18 @@ export default async function BlogPost({ params }: PageProps) {
             <div className="flex divide-x divide-border relative max-w-7xl mx-auto px-4 md:px-0 z-10">
                 <div className="absolute max-w-7xl mx-auto left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] lg:w-full h-full border-x border-border p-0 pointer-events-none" />
                 <main className="w-full p-0 overflow-hidden">
+                    {/* {page.data.thumbnail && (
+                        <div className="relative w-full aspect-video overflow-hidden border border-border">
+                            <Image
+                                src={page.data.thumbnail}
+                                alt={page.data.title}
+                                fill
+                                className="object-cover"
+                                priority
+                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                            />
+                        </div>
+                    )} */}
                     <div className="p-6 lg:p-10">
                         <div className="prose dark:prose-invert max-w-none prose-headings:scroll-mt-8 prose-headings:font-semibold prose-a:no-underline prose-headings:tracking-tight prose-headings:text-balance prose-p:tracking-tight prose-p:text-balance prose-lg">
                             <DocsBody>
