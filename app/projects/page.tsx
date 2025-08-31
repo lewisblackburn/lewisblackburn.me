@@ -31,8 +31,8 @@ export default async function ProjectsPage() {
                 className="border-t"
             >
                 <Container>
-                    <section className="bg-background relative py-12">
-                        <div className="grid grid-cols-1 gap-24">
+                    <section className="bg-background relative py-6 lg:py-12">
+                        <div className="grid grid-cols-1 gap-12">
                             {projects.map((project) => (
                                 <ProjectCard
                                     key={project.title}

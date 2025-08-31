@@ -39,18 +39,18 @@ export function BlogCard({
                     <p className="text-muted-foreground text-sm">
                         {description}
                     </p>
-                    <div className="mt-4 flex items-center justify-between">
+                    <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                         <div className="flex items-center gap-1 text-muted-foreground">
                             <RiTimeFill className="size-4 mb-0.5" />
                             <span className="text-xs text-muted-foreground">
                                 {readTime}
                             </span>
                         </div>
-                        <div className="flex flex-wrap gap-2">
+                        <div className="flex flex-wrap gap-1.5 sm:gap-2">
                             {tags?.map((tag) => (
                                 <Badge
                                     key={tag}
-                                    className="text-[10px] text-muted-foreground bg-secondary/50 tracking-wide"
+                                    className="text-xs text-muted-foreground bg-secondary/50 tracking-wide px-2 py-1"
                                 >
                                     {tag}
                                 </Badge>
