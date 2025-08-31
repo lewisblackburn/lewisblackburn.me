@@ -140,7 +140,7 @@ export default function Testimonials() {
                 {/* Title */}
                 <div className="flex flex-col items-center gap-6 px-4 sm:px-8">
                     <h2 className="mb-2 text-center text-3xl font-semibold lg:text-5xl">
-                        What people I've worked with say
+                        What people I&apos;ve worked with say
                     </h2>
                 </div>
                 <div className="after:bg-linear-to-t after:from-background relative mt-14 w-full px-4 after:absolute after:inset-x-0 after:-bottom-2 after:h-96 sm:px-8 md:px-16 lg:px-32">

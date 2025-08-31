@@ -1,6 +1,7 @@
 'use client'
 
 import { cn } from '@/lib/utils'
+import Image from 'next/image'
 import { useState } from 'react'
 
 import { Badge } from '@/components/ui/badge'
@@ -112,9 +113,11 @@ export default function Experience() {
                                         )}
                                     {entry.image && (
                                         <div className="mt-8 overflow-hidden rounded-xl border">
-                                            <img
+                                            <Image
                                                 src={entry.image}
                                                 alt={`${entry.location} visual`}
+                                                width={800}
+                                                height={600}
                                                 className="w-full object-cover transition-transform hover:scale-105"
                                             />
                                         </div>

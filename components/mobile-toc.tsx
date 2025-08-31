@@ -1,17 +1,14 @@
 'use client'
 
-import React from 'react'
-import { List } from 'lucide-react'
+import { TableOfContents } from '@/components/table-of-contents'
 import {
     Drawer,
-    DrawerTrigger,
+    DrawerBody,
     DrawerContent,
     DrawerHeader,
-    DrawerBody,
-    DrawerFooter,
+    DrawerTrigger,
 } from '@/components/ui/drawer'
-import { TableOfContents } from '@/components/table-of-contents'
-import { PromoContent } from '@/components/promo-content'
+import { List } from 'lucide-react'
 
 export function MobileTableOfContents() {
     return (

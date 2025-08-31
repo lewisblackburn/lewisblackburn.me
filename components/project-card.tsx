@@ -1,5 +1,6 @@
 import { RiGithubFill } from '@remixicon/react'
 import { SquareArrowOutUpRightIcon } from 'lucide-react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { AspectRatio } from './ui/aspect-ratio'
 import { Button } from './ui/button'
@@ -26,10 +27,11 @@ export default function ProjectCard({
                     ratio={16 / 9}
                     className="overflow-hidden rounded-lg"
                 >
-                    <img
+                    <Image
                         src={image}
                         alt="Project image"
-                        className="block size-full object-cover object-center"
+                        fill
+                        className="object-cover object-center"
                     />
                 </AspectRatio>
             </div>

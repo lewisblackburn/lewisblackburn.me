@@ -1,13 +1,6 @@
+import { RiCalendar2Fill, RiTimeFill } from '@remixicon/react'
 import { useId } from 'react'
-import {
-    RiCalendar2Fill,
-    RiGatsbyLine,
-    RiNextjsLine,
-    RiReactjsLine,
-    RiTimeFill,
-} from '@remixicon/react'
 
-import { Label } from '@/components/ui/label'
 import {
     Select,
     SelectContent,

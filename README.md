@@ -1,5 +1,5 @@
 <p align="center">
-  <img alt="" src="https://lewisblackburn.me/images/og/og.png">
+  <img alt="" src="https://lewisblackburn.me/images/og.png">
 </p>
 
 <h1 align="center">
