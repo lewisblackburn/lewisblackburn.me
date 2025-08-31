@@ -33,6 +33,12 @@ export default function RootLayout({
             className={`${GeistSans.variable} ${GeistMono.variable} antialiased`}
             suppressHydrationWarning
         >
+            <head>
+                <meta
+                    name="apple-mobile-web-app-title"
+                    content="Lewis Blackburn"
+                />
+            </head>
             <body>
                 <ThemeProvider
                     attribute="class"
