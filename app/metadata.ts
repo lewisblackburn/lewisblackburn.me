@@ -1,10 +1,7 @@
-import { Metadata } from "next";
-import { siteConfig } from "@/lib/site";
+import { siteConfig } from '@/lib/site'
+import { Metadata } from 'next'
 
-export const metadataKeywords = [
-    "Lewis Blackburn",
-    "Software Engineer"
-]
+export const metadataKeywords = ['Lewis Blackburn', 'Software Engineer']
 
 export const metadata: Metadata = {
     title: siteConfig.name,
@@ -12,24 +9,24 @@ export const metadata: Metadata = {
     keywords: metadataKeywords,
     authors: [
         {
-            name: "Lewis Blackburn",
-            url: "https://lewisblackburn.me",
+            name: 'Lewis Blackburn',
+            url: 'https://lewisblackburn.me',
         },
     ],
-    creator: "Lewis Blackburn",
+    creator: 'Lewis Blackburn',
     openGraph: {
-        type: "website",
-        locale: "en_US",
+        type: 'website',
+        locale: 'en_GB',
         url: siteConfig.url,
         title: siteConfig.name,
         description: siteConfig.description,
         siteName: siteConfig.name,
     },
     twitter: {
-        card: "summary_large_image",
+        card: 'summary_large_image',
         title: siteConfig.name,
         description: siteConfig.description,
-        creator: "@zxffo",
+        creator: '@zxffo',
     },
     robots: {
         index: true,
@@ -37,9 +34,9 @@ export const metadata: Metadata = {
         googleBot: {
             index: true,
             follow: true,
-            "max-video-preview": -1,
-            "max-image-preview": "large",
-            "max-snippet": -1,
+            'max-video-preview': -1,
+            'max-image-preview': 'large',
+            'max-snippet': -1,
         },
     },
-};
+}

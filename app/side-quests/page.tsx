@@ -4,6 +4,11 @@ import Timeline from '@/components/timeline'
 import { siteConfig } from '@/lib/site'
 import React from 'react'
 
+export const metadata = {
+    title: 'Side Quests',
+    description: 'A collection of my side quests and challenges.',
+}
+
 export default async function SideQuestsPage() {
     const sideQuestsItem = siteConfig.horizontalNav.find(
         (item) => item.title === 'Side Quests'

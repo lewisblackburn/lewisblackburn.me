@@ -6,6 +6,11 @@ import { bucketList } from '@/lib/bucket-list'
 import { siteConfig } from '@/lib/site'
 import React from 'react'
 
+export const metadata = {
+    title: 'Bucket List',
+    description: 'My personal bucket list of things to do!',
+}
+
 export default async function BucketListPage() {
     const sortedBucketList = bucketList.sort((a, b) => {
         const yearA = a.year || 0
@@ -31,8 +36,8 @@ export default async function BucketListPage() {
                 direction="up"
                 className="border-t"
             >
-                <Container className="max-w-2xl">
-                    <section className="bg-background relative py-12">
+                <section className="bg-background relative py-12">
+                    <Container className="max-w-2xl">
                         <div className="space-y-12">
                             {sortedBucketList.reverse().map((item, index) => (
                                 <TodoItem
@@ -44,8 +49,8 @@ export default async function BucketListPage() {
                                 />
                             ))}
                         </div>
-                    </section>
-                </Container>
+                    </Container>
+                </section>
             </BlurFade>
         </div>
     )

@@ -1,10 +1,18 @@
-import type { NextConfig } from "next";
-import { createMDX } from "fumadocs-mdx/next";
+import { createMDX } from 'fumadocs-mdx/next'
+import type { NextConfig } from 'next'
 
-const withMDX = createMDX();
+const withMDX = createMDX()
 
 const nextConfig: NextConfig = {
-  transpilePackages: ["geist"],
-};
+    transpilePackages: ['geist'],
+    images: {
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'i.scdn.co',
+            },
+        ],
+    },
+}
 
-export default withMDX(nextConfig);
+export default withMDX(nextConfig)

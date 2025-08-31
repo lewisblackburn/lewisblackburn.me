@@ -1,7 +1,7 @@
 import {
     BookOpen,
+    Briefcase,
     ChartArea,
-    Heart,
     ListCheck,
     MessageCircle,
     Swords,
@@ -64,10 +64,10 @@ export const siteConfig = {
             icon: BookOpen,
         },
         {
-            title: 'Attribution',
-            href: '/attribution',
-            description: 'Credits and thanks to contributors and resources',
-            icon: Heart,
+            title: 'Experience',
+            href: '/#experience',
+            description: 'A timeline of my life and career',
+            icon: Briefcase,
         },
         {
             title: 'Testimonials',

@@ -1,21 +1,26 @@
+import GuestBook from '@/components/guestbook'
 import Header from '@/components/header'
 import { BlurFade } from '@/components/magicui/blur-fade'
-import { Safari } from '@/components/magicui/safari'
 import { Container } from '@/components/ui/container'
 import { siteConfig } from '@/lib/site'
 import React from 'react'
 
-export default async function UsesPage() {
-    const usesItem = siteConfig.horizontalNav.find(
-        (item) => item.title === 'Uses'
+export const metadata = {
+    title: 'Guest Book',
+    description: 'Leave a message in my guest book!',
+}
+
+export default async function GuestBookPage() {
+    const guestBookItem = siteConfig.verticalNav.find(
+        (item) => item.title === 'Guest Book'
     )!
 
     return (
         <div className="bg-background relative">
             <Header
-                icon={React.createElement(usesItem.icon)}
-                title={usesItem.title}
-                subtitle={usesItem.description}
+                icon={React.createElement(guestBookItem.icon)}
+                title={guestBookItem.title}
+                subtitle={guestBookItem.description}
             />
 
             <BlurFade
@@ -26,11 +31,7 @@ export default async function UsesPage() {
             >
                 <Container>
                     <section className="bg-background relative py-24 md:py-32">
-                        <Safari
-                            url="lewisblackburn.me/uses"
-                            className="size-full"
-                            imageSrc="https://via.placeholder.com/1200x750"
-                        />
+                        <GuestBook />
                     </section>
                 </Container>
             </BlurFade>

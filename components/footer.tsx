@@ -2,6 +2,7 @@ import { SocialIcons } from '@/components/social-icons'
 import { Container } from '@/components/ui/container'
 import { siteConfig } from '@/lib/site'
 import Link from 'next/link'
+import NowPlaying from './now-playing'
 
 export default function Footer() {
     return (
@@ -75,9 +76,7 @@ export default function Footer() {
                         rights reserved.
                     </p>
                     <ul className="order-1 flex flex-col gap-2 md:order-2 md:flex-row">
-                        <li className="hover:text-primary">
-                            <a href="">NOW PLAYING</a>
-                        </li>
+                        <NowPlaying />
                     </ul>
                 </div>
             </Container>

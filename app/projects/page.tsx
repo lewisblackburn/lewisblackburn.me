@@ -5,6 +5,11 @@ import { Container } from '@/components/ui/container'
 import { projects } from '@/lib/projects'
 import { Folder } from 'lucide-react'
 
+export const metadata = {
+    title: 'Projects',
+    description: "Showcase of my projects that I'm proud of.",
+}
+
 export default async function ProjectsPage() {
     return (
         <div className="bg-background relative">
