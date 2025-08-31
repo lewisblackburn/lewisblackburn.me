@@ -91,8 +91,8 @@ export default async function BlogPost({ params }: PageProps) {
                     )}
                 </div>
             </div>
-            <div className="flex divide-x divide-border relative max-w-7xl mx-auto px-4 md:px-0 z-10">
-                <div className="absolute max-w-7xl mx-auto left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] lg:w-full h-full border-x border-border p-0 pointer-events-none" />
+            <div className="flex lg:divide-x lg:divide-border relative max-w-7xl mx-auto px-4 md:px-0 z-10">
+                <div className="absolute max-w-7xl mx-auto left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] lg:w-full h-full border-x border-border p-0 pointer-events-none hidden lg:block" />
                 <main className="w-full p-0 overflow-hidden">
                     {/* {page.data.thumbnail && (
                         <div className="relative w-full aspect-video overflow-hidden border border-border">
@@ -106,7 +106,7 @@ export default async function BlogPost({ params }: PageProps) {
                             />
                         </div>
                     )} */}
-                    <div className="p-6 lg:p-10">
+                    <div className="p-2 py-6 md:p-6 lg:p-10">
                         <div className="prose dark:prose-invert max-w-none prose-headings:scroll-mt-8 prose-headings:font-semibold prose-a:no-underline prose-headings:tracking-tight prose-headings:text-balance prose-p:tracking-tight prose-p:text-balance prose-lg">
                             <DocsBody>
                                 <MDX />
