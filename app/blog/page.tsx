@@ -5,10 +5,10 @@ import { BlurFade } from '@/components/magicui/blur-fade'
 import { TagFilter } from '@/components/tag-filter'
 import { Container } from '@/components/ui/container'
 import { Label } from '@/components/ui/label'
-import { RiBook2Fill } from '@remixicon/react'
+import { siteConfig } from '@/lib/site'
 import { loader } from 'fumadocs-core/source'
 import { createMDXSource } from 'fumadocs-mdx'
-import { Suspense } from 'react'
+import React, { Suspense } from 'react'
 
 interface BlogData {
     title: string
@@ -45,6 +45,10 @@ export default async function BlogPage({
 }: {
     searchParams: Promise<{ tag?: string }>
 }) {
+    const blogItem = siteConfig.navigation.find(
+        (item) => item.title === 'Blog'
+    )!
+
     const resolvedSearchParams = await searchParams
     const allPages = blogSource.getPages() as BlogPage[]
     const sortedBlogs = allPages.sort((a, b) => {
@@ -82,9 +86,9 @@ export default async function BlogPage({
     return (
         <div className="bg-background relative">
             <Header
-                icon={<RiBook2Fill />}
-                title="The Blog"
-                subtitle="Thoughts, mental models, and tutorials about front-end development."
+                icon={React.createElement(blogItem.icon)}
+                title={blogItem.title}
+                subtitle={blogItem.description}
             />
 
             <BlurFade

@@ -3,7 +3,8 @@ import { BlurFade } from '@/components/magicui/blur-fade'
 import ProjectCard from '@/components/project-card'
 import { Container } from '@/components/ui/container'
 import { projects } from '@/lib/projects'
-import { Folder } from 'lucide-react'
+import { siteConfig } from '@/lib/site'
+import React from 'react'
 
 export const metadata = {
     title: 'Projects',
@@ -11,12 +12,16 @@ export const metadata = {
 }
 
 export default async function ProjectsPage() {
+    const projectItem = siteConfig.navigation.find(
+        (item) => item.title === 'Projects'
+    )!
+
     return (
         <div className="bg-background relative">
             <Header
-                icon={<Folder />}
-                title="Projects"
-                subtitle="Showcase of my projects that I'm proud of."
+                icon={React.createElement(projectItem.icon)}
+                title={projectItem.title}
+                subtitle={projectItem.description}
             />
 
             <BlurFade

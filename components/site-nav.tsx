@@ -1,6 +1,6 @@
 'use client'
 
-import { FileText, Menu, X } from 'lucide-react'
+import { ChevronDown, FileText } from 'lucide-react'
 import { useState } from 'react'
 
 import { Button } from '@/components/ui/button'
@@ -14,9 +14,18 @@ import {
     navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu'
 import { siteConfig } from '@/lib/site'
+import { cn } from '@/lib/utils'
 import Link from 'next/link'
 import { AnimatedThemeToggler } from './animated-theme-toggler'
 import { Container } from './ui/container'
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuGroup,
+    DropdownMenuItem,
+    DropdownMenuSeparator,
+    DropdownMenuTrigger,
+} from './ui/dropdown-menu'
 
 export default function SiteNav() {
     const [open, setOpen] = useState(false)
@@ -133,22 +142,187 @@ export default function SiteNav() {
                                 </Link>
                             </Button>
                             <AnimatedThemeToggler />
-                            <Button
-                                variant="outline"
-                                size="icon"
-                                aria-label="Main Menu"
-                                className="lg:hidden"
-                                onClick={() => {
-                                    if (open) {
-                                        setOpen(false)
-                                    } else {
-                                        setOpen(true)
-                                    }
-                                }}
-                            >
-                                {!open && <Menu className="size-4" />}
-                                {open && <X className="size-4" />}
-                            </Button>
+
+                            <DropdownMenu open={open} onOpenChange={setOpen}>
+                                <DropdownMenuTrigger>
+                                    <Button
+                                        variant="outline"
+                                        aria-label="Main Menu"
+                                        className="lg:hidden focus:outline-none focus:ring-0 focus:ring-offset-0"
+                                        onClick={() => {
+                                            if (open) {
+                                                setOpen(false)
+                                            } else {
+                                                setOpen(true)
+                                            }
+                                        }}
+                                        asChild
+                                    >
+                                        <div>
+                                            Menu
+                                            <ChevronDown
+                                                className={cn(
+                                                    'opacity-60 transition-transform duration-150',
+                                                    open
+                                                        ? 'rotate-180'
+                                                        : 'rotate-0'
+                                                )}
+                                                size={16}
+                                                aria-hidden="true"
+                                            />
+                                        </div>
+                                    </Button>
+                                </DropdownMenuTrigger>
+                                <DropdownMenuContent
+                                    align="end"
+                                    side="bottom"
+                                    className="w-[280px] focus:outline-none focus:ring-0 focus:ring-offset-0"
+                                    sideOffset={8}
+                                >
+                                    <DropdownMenuGroup>
+                                        {siteConfig.navigation?.map(
+                                            (navItem) => {
+                                                const IconComponent =
+                                                    navItem.icon
+                                                return (
+                                                    <DropdownMenuItem
+                                                        key={navItem.href}
+                                                        className="focus:outline-none focus:ring-0 focus:ring-offset-0 focus:bg-accent"
+                                                        asChild
+                                                    >
+                                                        <Link
+                                                            href={navItem.href}
+                                                            className="flex items-start gap-3 w-full"
+                                                        >
+                                                            {IconComponent && (
+                                                                <div className="bg-primary/10 text-primary rounded-lg p-1.5 w-fit flex-shrink-0">
+                                                                    <IconComponent className="h-4 w-4" />
+                                                                </div>
+                                                            )}
+                                                            <div className="flex flex-col gap-1 min-w-0 flex-1">
+                                                                <div className="text-sm font-medium">
+                                                                    {
+                                                                        navItem.title
+                                                                    }
+                                                                </div>
+                                                                {navItem.description && (
+                                                                    <div className="text-muted-foreground text-xs font-normal leading-relaxed">
+                                                                        {
+                                                                            navItem.description
+                                                                        }
+                                                                    </div>
+                                                                )}
+                                                            </div>
+                                                        </Link>
+                                                    </DropdownMenuItem>
+                                                )
+                                            }
+                                        )}
+                                    </DropdownMenuGroup>
+
+                                    {siteConfig.horizontalNav &&
+                                        siteConfig.horizontalNav.length > 0 && (
+                                            <>
+                                                <DropdownMenuSeparator />
+                                                <DropdownMenuGroup>
+                                                    {siteConfig.horizontalNav.map(
+                                                        (navItem) => {
+                                                            const IconComponent =
+                                                                navItem.icon
+                                                            return (
+                                                                <DropdownMenuItem
+                                                                    key={
+                                                                        navItem.href
+                                                                    }
+                                                                    className="focus:outline-none focus:ring-0 focus:ring-offset-0 focus:bg-accent"
+                                                                    asChild
+                                                                >
+                                                                    <Link
+                                                                        href={
+                                                                            navItem.href
+                                                                        }
+                                                                        className="flex items-start gap-3 w-full"
+                                                                    >
+                                                                        {IconComponent && (
+                                                                            <div className="bg-primary/10 text-primary rounded-lg p-1.5 w-fit flex-shrink-0">
+                                                                                <IconComponent className="h-4 w-4" />
+                                                                            </div>
+                                                                        )}
+                                                                        <div className="flex flex-col gap-1 min-w-0 flex-1">
+                                                                            <div className="text-sm font-medium">
+                                                                                {
+                                                                                    navItem.title
+                                                                                }
+                                                                            </div>
+                                                                            {navItem.description && (
+                                                                                <div className="text-muted-foreground text-xs font-normal leading-relaxed">
+                                                                                    {
+                                                                                        navItem.description
+                                                                                    }
+                                                                                </div>
+                                                                            )}
+                                                                        </div>
+                                                                    </Link>
+                                                                </DropdownMenuItem>
+                                                            )
+                                                        }
+                                                    )}
+                                                </DropdownMenuGroup>
+                                            </>
+                                        )}
+
+                                    {siteConfig.verticalNav &&
+                                        siteConfig.verticalNav.length > 0 && (
+                                            <>
+                                                <DropdownMenuSeparator />
+                                                <DropdownMenuGroup>
+                                                    {siteConfig.verticalNav.map(
+                                                        (navItem) => {
+                                                            const IconComponent =
+                                                                navItem.icon
+                                                            return (
+                                                                <DropdownMenuItem
+                                                                    key={
+                                                                        navItem.href
+                                                                    }
+                                                                    className="focus:outline-none focus:ring-0 focus:ring-offset-0 focus:bg-accent"
+                                                                    asChild
+                                                                >
+                                                                    <Link
+                                                                        href={
+                                                                            navItem.href
+                                                                        }
+                                                                        className="flex items-start gap-3 w-full"
+                                                                    >
+                                                                        {IconComponent && (
+                                                                            <div className="bg-primary/10 text-primary rounded-lg p-1.5 w-fit flex-shrink-0">
+                                                                                <IconComponent className="h-4 w-4" />
+                                                                            </div>
+                                                                        )}
+                                                                        <div className="flex flex-col gap-1 min-w-0 flex-1">
+                                                                            <div className="text-sm font-medium">
+                                                                                {
+                                                                                    navItem.title
+                                                                                }
+                                                                            </div>
+                                                                            {navItem.description && (
+                                                                                <div className="text-muted-foreground text-xs font-normal leading-relaxed">
+                                                                                    {
+                                                                                        navItem.description
+                                                                                    }
+                                                                                </div>
+                                                                            )}
+                                                                        </div>
+                                                                    </Link>
+                                                                </DropdownMenuItem>
+                                                            )
+                                                        }
+                                                    )}
+                                                </DropdownMenuGroup>
+                                            </>
+                                        )}
+                                </DropdownMenuContent>
+                            </DropdownMenu>
                         </div>
                     </div>
                 </NavigationMenu>

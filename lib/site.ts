@@ -1,7 +1,10 @@
+import { RiBook2Fill } from '@remixicon/react'
 import {
     BookOpen,
     Briefcase,
     ChartArea,
+    Folder,
+    Home,
     ListCheck,
     MessageCircle,
     Swords,
@@ -31,9 +34,25 @@ export const siteConfig = {
         { name: 'Twitter', href: 'https://x.com/zxffo', icon: 'twitter' },
     ],
     navigation: [
-        { title: 'Home', href: '/' },
-        { title: 'Blog', href: '/blog' },
-        { title: 'Projects', href: '/projects' },
+        {
+            title: 'Home',
+            href: '/',
+            description: 'Welcome to my little corner of the internet',
+            icon: Home,
+        },
+        {
+            title: 'Blog',
+            href: '/blog',
+            description:
+                'Thoughts, mental models, and tutorials about front-end development',
+            icon: RiBook2Fill,
+        },
+        {
+            title: 'Projects',
+            href: '/projects',
+            description: "Showcase of my projects that I'm proud of",
+            icon: Folder,
+        },
     ],
     horizontalNav: [
         {
