@@ -122,9 +122,15 @@ export default function SiteNav() {
                         </div>
 
                         <div className="flex items-center gap-2">
-                            <Button variant="outline">
-                                Resume
-                                <FileText className="size-4" />
+                            <Button variant="outline" asChild>
+                                <Link
+                                    href="/resume.pdf"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    Resume
+                                    <FileText className="size-4" />
+                                </Link>
                             </Button>
                             <AnimatedThemeToggler />
                             <Button
