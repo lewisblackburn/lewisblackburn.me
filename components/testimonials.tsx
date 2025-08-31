@@ -1,16 +1,9 @@
 'use client'
-import {
-    BadgeCheck,
-    ChevronRight,
-    Clock,
-    MessageSquareCode,
-    User,
-} from 'lucide-react'
+import { BadgeCheck, Clock, MessageSquareCode, User } from 'lucide-react'
 import { useEffect, useMemo, useState } from 'react'
 
 import { Avatar, AvatarImage } from '@/components/ui/avatar'
 import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Container } from '@/components/ui/container'
 import { Testimonial, testimonials } from '@/lib/testimonials'
@@ -129,7 +122,10 @@ export default function Testimonials() {
     }, [columnCount])
 
     return (
-        <section className="bg-background relative py-24 md:py-32">
+        <section
+            id="testimonials"
+            className="bg-background relative py-24 md:py-32"
+        >
             <Container>
                 <div className="my-4 flex justify-center">
                     <Badge
@@ -158,7 +154,7 @@ export default function Testimonials() {
                     </div>
                 </div>
 
-                <div className="flex justify-center">
+                {/* <div className="flex justify-center">
                     <Button
                         className="hover:bg-primary/90 mt-4 gap-2 rounded-lg px-5 py-3 text-sm shadow-sm transition-colors focus:outline-none disabled:pointer-events-none disabled:opacity-50"
                         disabled={true}
@@ -170,7 +166,7 @@ export default function Testimonials() {
                         </span>
                         <ChevronRight className="text-muted-foreground/80 h-4 w-4" />
                     </Button>
-                </div>
+                </div> */}
             </Container>
         </section>
     )

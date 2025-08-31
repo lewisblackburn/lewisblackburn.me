@@ -3,8 +3,8 @@ import {
     ChartArea,
     Heart,
     ListCheck,
+    MessageCircle,
     Swords,
-    Wrench,
 } from 'lucide-react'
 
 export const siteConfig = {
@@ -37,12 +37,6 @@ export const siteConfig = {
     ],
     horizontalNav: [
         {
-            title: 'Uses',
-            href: '/uses',
-            description: 'A list of hardware and software that I use',
-            icon: Wrench,
-        },
-        {
             title: 'Bucket List',
             href: '/bucket-list',
             description:
@@ -55,6 +49,12 @@ export const siteConfig = {
             description: 'New skills and adventures I have unlocked',
             icon: Swords,
         },
+        {
+            title: 'Statistics',
+            href: '/statistics',
+            description: 'A collection of my personal statistics and metrics',
+            icon: ChartArea,
+        },
     ],
     verticalNav: [
         {
@@ -64,16 +64,16 @@ export const siteConfig = {
             icon: BookOpen,
         },
         {
-            title: 'Statistics',
-            href: '/statistics',
-            description: 'Site stats and interesting numbers',
-            icon: ChartArea,
-        },
-        {
             title: 'Attribution',
             href: '/attribution',
             description: 'Credits and thanks to contributors and resources',
             icon: Heart,
+        },
+        {
+            title: 'Testimonials',
+            href: '/#testimonials',
+            description: 'What others say about me',
+            icon: MessageCircle,
         },
     ],
 }
