@@ -8,13 +8,27 @@ import {
     DrawerHeader,
     DrawerTrigger,
 } from '@/components/ui/drawer'
-import { List } from 'lucide-react'
+import { ListTree } from 'lucide-react'
+import { Button } from './ui/button'
 
 export function MobileTableOfContents() {
     return (
         <Drawer>
-            <DrawerTrigger className="lg:hidden fixed bottom-6 right-6 z-50 bg-primary text-primary-foreground p-3 rounded-full shadow-lg hover:bg-primary/90 transition-colors">
-                <List size={20} />
+            <DrawerTrigger className="lg:hidden fixed bottom-6 right-6 z-50">
+                <Button
+                    className="border border-border text-xs hover:bg-secondary/90"
+                    variant="secondary"
+                    asChild
+                >
+                    <div>
+                        <ListTree
+                            className="opacity-60"
+                            size={16}
+                            aria-hidden="true"
+                        />
+                        Table of Contents
+                    </div>
+                </Button>
             </DrawerTrigger>
 
             <DrawerContent className="lg:hidden">
