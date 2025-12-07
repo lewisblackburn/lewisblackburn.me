@@ -1,9 +1,7 @@
-import { sideQuestsDocs, sideQuestsMeta } from '@/.source'
 import { formatDate } from '@/lib/utils'
-import { loader } from 'fumadocs-core/source'
-import { createMDXSource } from 'fumadocs-mdx'
 import { DocsBody } from 'fumadocs-ui/page'
 import { Container } from './ui/container'
+import { sideQuestsSource } from '@/source'
 
 interface SideQuestData {
     title: string
@@ -17,13 +15,8 @@ interface SideQuestPage {
     data: SideQuestData
 }
 
-const sideQuestsSource = loader({
-    baseUrl: '/side-quests',
-    source: createMDXSource(sideQuestsDocs, sideQuestsMeta),
-})
-
 export default function Timeline() {
-    const allSideQuests = sideQuestsSource.getPages() as SideQuestPage[]
+    const allSideQuests = sideQuestsSource.getPages()
 
     return (
         <section className="bg-background relative py-12 lg:py-32">

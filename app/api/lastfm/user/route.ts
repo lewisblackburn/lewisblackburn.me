@@ -25,7 +25,7 @@ export const GET = async () => {
         console.error('[API] Error fetching user info data', error)
 
         if (error instanceof z.ZodError) {
-            return APIResponse.error('Invalid data', 422, error.errors)
+            return APIResponse.error('Invalid data', 422, error.message)
         }
 
         return APIResponse.error(error.message)

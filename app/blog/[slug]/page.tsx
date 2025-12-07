@@ -1,7 +1,4 @@
-import { docs, meta } from '@/.source'
 import { Button } from '@/components/ui/button'
-import { loader } from 'fumadocs-core/source'
-import { createMDXSource } from 'fumadocs-mdx'
 import { DocsBody } from 'fumadocs-ui/page'
 import { ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
@@ -13,15 +10,11 @@ import { MobileTableOfContents } from '@/components/mobile-toc'
 import { ReadMoreSection } from '@/components/read-more-section'
 import { TableOfContents } from '@/components/table-of-contents'
 import { getAuthor, isValidAuthor } from '@/lib/authors'
+import { blogSource } from '@/source'
 
 interface PageProps {
     params: Promise<{ slug: string }>
 }
-
-const blogSource = loader({
-    baseUrl: '/blog',
-    source: createMDXSource(docs, meta),
-})
 
 const formatDate = (date: Date): string => {
     return date.toLocaleDateString('en-US', {

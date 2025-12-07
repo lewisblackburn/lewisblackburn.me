@@ -1,4 +1,3 @@
-import { docs, meta } from '@/.source'
 import { BlogCard } from '@/components/blog-card'
 import Header from '@/components/header'
 import { BlurFade } from '@/components/magicui/blur-fade'
@@ -6,8 +5,7 @@ import { TagFilter } from '@/components/tag-filter'
 import { Container } from '@/components/ui/container'
 import { Label } from '@/components/ui/label'
 import { siteConfig } from '@/lib/site'
-import { loader } from 'fumadocs-core/source'
-import { createMDXSource } from 'fumadocs-mdx'
+import { blogSource } from '@/source'
 import React, { Suspense } from 'react'
 
 interface BlogData {
@@ -27,11 +25,6 @@ interface BlogPage {
     data: BlogData
 }
 
-const blogSource = loader({
-    baseUrl: '/blog',
-    source: createMDXSource(docs, meta),
-})
-
 const formatDate = (date: Date): string => {
     return date.toLocaleDateString('en-US', {
         year: 'numeric',
@@ -50,7 +43,7 @@ export default async function BlogPage({
     )!
 
     const resolvedSearchParams = await searchParams
-    const allPages = blogSource.getPages() as BlogPage[]
+    const allPages = blogSource.getPages()
     const sortedBlogs = allPages.sort((a, b) => {
         const dateA = new Date(a.data.date).getTime()
         const dateB = new Date(b.data.date).getTime()
@@ -72,16 +65,19 @@ export default async function BlogPage({
                   blog.data.tags?.includes(selectedTag)
               )
 
-    const tagCounts = allTags.reduce((acc, tag) => {
-        if (tag === 'All') {
-            acc[tag] = sortedBlogs.length
-        } else {
-            acc[tag] = sortedBlogs.filter((blog) =>
-                blog.data.tags?.includes(tag)
-            ).length
-        }
-        return acc
-    }, {} as Record<string, number>)
+    const tagCounts = allTags.reduce(
+        (acc, tag) => {
+            if (tag === 'All') {
+                acc[tag] = sortedBlogs.length
+            } else {
+                acc[tag] = sortedBlogs.filter((blog) =>
+                    blog.data.tags?.includes(tag)
+                ).length
+            }
+            return acc
+        },
+        {} as Record<string, number>
+    )
 
     return (
         <div className="bg-background relative">
@@ -112,7 +108,7 @@ export default async function BlogPage({
                                                 url={blog.url}
                                                 title={blog.data.title}
                                                 description={
-                                                    blog.data.description
+                                                    blog.data.description || ''
                                                 }
                                                 date={formattedDate}
                                                 thumbnail={blog.data.thumbnail}
