@@ -38,6 +38,23 @@ export default function RootLayout({
                     name="apple-mobile-web-app-title"
                     content="Lewis Blackburn"
                 />
+                <script
+                    dangerouslySetInnerHTML={{
+                        __html: `
+                        (function() {
+                            try {
+                                const theme = localStorage.getItem('theme') || 
+                                    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+                                if (theme === 'dark') {
+                                    document.documentElement.classList.add('dark');
+                                } else {
+                                    document.documentElement.classList.remove('dark');
+                                }
+                            } catch (e) {}
+                        })();
+                    `,
+                    }}
+                />
             </head>
             <body>
                 <ThemeProvider

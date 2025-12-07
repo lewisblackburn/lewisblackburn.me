@@ -17,7 +17,6 @@ export const experienceData: ExperienceEntry[] = [
             'I am currently working as a Graduate Software Engineer at Bally’s Interactive.',
             'In this role, I will move across five teams over the course of two years, gaining experience in various aspects of software development.',
         ],
-        image: 'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-aspect-video-1.svg',
     },
     {
         location: '45 Innovation Wy, Barnsley S75 1JG',
@@ -31,7 +30,6 @@ export const experienceData: ExperienceEntry[] = [
             'Ensured the website was responsive and accessible across all devices.',
             'Optimised the website for search engines and improved its performance.',
         ],
-        image: 'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-aspect-video-1.svg',
     },
     {
         location: '212‑214 Fulford Road, YO10 4DX',

@@ -7,7 +7,7 @@ import {
 
 export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
     return (
-        <NextThemesProvider defaultTheme="dark" {...props}>
+        <NextThemesProvider {...props}>
             {children}
         </NextThemesProvider>
     )
