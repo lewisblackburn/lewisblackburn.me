@@ -24,8 +24,10 @@ export default function Timeline() {
                 <div className="flex flex-col space-y-24">
                     {allSideQuests.map((quest) => {
                         const MDX = quest.data.body
-                        const date = new Date(quest.data.date)
-                        const formattedDate = formatDate(date)
+                        const fromDate = new Date(quest.data.from)
+                        const toDate = new Date(quest.data.to)
+                        const formattedFromDate = formatDate(fromDate)
+                        const formattedToDate = formatDate(toDate)
 
                         return (
                             <div
@@ -33,7 +35,7 @@ export default function Timeline() {
                                 key={quest.url}
                             >
                                 <time className="block text-sm font-medium text-muted-foreground">
-                                    {formattedDate}
+                                    {formattedFromDate} - {formattedToDate}
                                 </time>
                                 <div className="col-span-2">
                                     <h3 className="text-md font-medium tracking-wider">

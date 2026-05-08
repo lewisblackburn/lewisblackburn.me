@@ -30,7 +30,8 @@ export const { docs: sideQuestsDocs, meta: sideQuestsMeta } = defineDocs({
     docs: {
         schema: frontmatterSchema.extend({
             title: z.string(),
-            date: z.string(),
+            from: z.string(),
+            to: z.string(),
             location: z.string().optional(),
         }),
     },
