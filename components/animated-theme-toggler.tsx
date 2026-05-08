@@ -12,7 +12,7 @@ type props = {
 }
 
 export const AnimatedThemeToggler = ({ className }: props) => {
-    const { theme, setTheme } = useTheme()
+    const { resolvedTheme, setTheme } = useTheme()
     const [mounted, setMounted] = useState(false)
     const buttonRef = useRef<HTMLButtonElement | null>(null)
 
@@ -24,7 +24,7 @@ export const AnimatedThemeToggler = ({ className }: props) => {
     const changeTheme = async () => {
         if (!buttonRef.current) return
 
-        const newTheme = theme === 'dark' ? 'light' : 'dark'
+        const newTheme = resolvedTheme === 'dark' ? 'light' : 'dark'
 
         await document.startViewTransition(() => {
             flushSync(() => {
@@ -77,7 +77,7 @@ export const AnimatedThemeToggler = ({ className }: props) => {
             variant="outline"
             size="icon"
         >
-            {theme === 'dark' ? (
+            {resolvedTheme === 'dark' ? (
                 <Sun className="h-[1.2rem] w-[1.2rem] transition-all duration-200" />
             ) : (
                 <Moon className="h-[1.2rem] w-[1.2rem] transition-all duration-200" />
