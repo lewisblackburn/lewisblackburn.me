@@ -4,37 +4,37 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { AspectRatio } from './ui/aspect-ratio'
 import { Button } from './ui/button'
+import type { Project } from '@/lib/projects'
 
-interface ProjectCardProps {
-    title: string
-    description: string
-    image: string
-    repository?: string
-    url?: string
-}
+type ProjectCardProps = Omit<Project, 'featured'>
 
 export default function ProjectCard({
     title,
     description,
     image,
+    preview: Preview,
     repository,
     url,
 }: ProjectCardProps) {
     return (
-        <div className=" group flex flex-col gap-6 py-8 md:flex-row md:items-center">
-            <div className="md:w-1/3">
-                <AspectRatio
-                    ratio={16 / 9}
-                    className="overflow-hidden rounded-lg"
-                >
-                    <Image
-                        src={image}
-                        alt={`${title} website screenshot`}
-                        sizes="(min-width: 768px) 33vw, 100vw"
-                        fill
-                        className="object-cover object-center"
-                    />
-                </AspectRatio>
+        <div className="group flex flex-col gap-6 py-8 md:flex-row md:items-center">
+            <div className={Preview ? 'md:w-2/5' : 'md:w-1/3'}>
+                {Preview ? (
+                    <Preview />
+                ) : image ? (
+                    <AspectRatio
+                        ratio={16 / 9}
+                        className="overflow-hidden rounded-lg"
+                    >
+                        <Image
+                            src={image}
+                            alt={`${title} preview`}
+                            sizes="(min-width: 768px) 33vw, 100vw"
+                            fill
+                            className="object-cover object-center"
+                        />
+                    </AspectRatio>
+                ) : null}
             </div>
 
             <div className="flex flex-1 flex-col gap-2 md:pl-6">

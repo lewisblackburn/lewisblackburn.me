@@ -39,6 +39,7 @@ export default async function ProjectsPage() {
                                     title={project.title}
                                     description={project.description}
                                     image={project.image}
+                                    preview={project.preview}
                                     repository={project.repository}
                                     url={project.url}
                                 />
