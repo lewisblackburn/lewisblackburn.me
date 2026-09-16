@@ -33,7 +33,7 @@ export default function SiteNav() {
     return (
         <section className="bg-transparent relative inset-x-0 top-0 z-20">
             <Container className="px-4 lg:px-8">
-                <NavigationMenu className="w-full max-w-none">
+                <NavigationMenu aria-label="Main navigation" className="w-full max-w-none">
                     <div className="flex w-full items-center justify-between gap-12 py-4">
                         <div className="flex items-center gap-8">
                             <NavigationMenuList className="hidden lg:flex">
@@ -144,33 +144,23 @@ export default function SiteNav() {
                             <AnimatedThemeToggler />
 
                             <DropdownMenu open={open} onOpenChange={setOpen}>
-                                <DropdownMenuTrigger>
+                                <DropdownMenuTrigger asChild>
                                     <Button
                                         variant="outline"
                                         aria-label="Main Menu"
-                                        className="lg:hidden focus:outline-none focus:ring-0 focus:ring-offset-0"
-                                        onClick={() => {
-                                            if (open) {
-                                                setOpen(false)
-                                            } else {
-                                                setOpen(true)
-                                            }
-                                        }}
-                                        asChild
+                                        className="lg:hidden"
                                     >
-                                        <div>
-                                            Menu
-                                            <ChevronDown
-                                                className={cn(
-                                                    'opacity-60 transition-transform duration-150',
-                                                    open
-                                                        ? 'rotate-180'
-                                                        : 'rotate-0'
-                                                )}
-                                                size={16}
-                                                aria-hidden="true"
-                                            />
-                                        </div>
+                                        Menu
+                                        <ChevronDown
+                                            className={cn(
+                                                'opacity-60 transition-transform duration-150',
+                                                open
+                                                    ? 'rotate-180'
+                                                    : 'rotate-0'
+                                            )}
+                                            size={16}
+                                            aria-hidden="true"
+                                        />
                                     </Button>
                                 </DropdownMenuTrigger>
                                 <DropdownMenuContent

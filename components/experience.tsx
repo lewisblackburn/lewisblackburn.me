@@ -2,7 +2,7 @@
 
 import { cn } from '@/lib/utils'
 import Image from 'next/image'
-import { useState } from 'react'
+import { useScrollSpy } from '@/hooks/use-scroll-spy'
 
 import { Badge } from '@/components/ui/badge'
 import { Container } from '@/components/ui/container'
@@ -12,7 +12,7 @@ import { Briefcase } from 'lucide-react'
 import { IconButton } from './ui/icon-button'
 
 export default function Experience() {
-    const [activeSection, setActiveSection] = useState(0)
+    const { activeSection, setActiveSection, entryRefs } = useScrollSpy()
 
     return (
         <section
@@ -35,12 +35,13 @@ export default function Experience() {
                             <h3 className="mb-5 text-sm font-medium tracking-wider text-muted-foreground uppercase">
                                 Career Highlights
                             </h3>
-                            <nav className="flex flex-col space-y-2.5">
+                            <nav aria-label="Career highlights" className="flex flex-col space-y-2.5">
                                 {experienceData.map((entry, index) => (
                                     <a
                                         key={index}
                                         href={`#entry-${index}`}
                                         onClick={() => setActiveSection(index)}
+                                        aria-current={activeSection === index ? 'location' : undefined}
                                         className={cn(
                                             'group flex flex-col gap-2 rounded-md border border-transparent px-3 py-2 text-left transition-all hover:border-border hover:bg-accent hover:text-foreground',
                                             activeSection === index
@@ -67,7 +68,8 @@ export default function Experience() {
                         {experienceData.map((entry, index) => (
                             <div
                                 key={index}
-                                className="relative flex flex-col gap-6 border-l-4 border-l-border/30 pl-6 transition-colors hover:border-l-border md:gap-8"
+                                ref={(element) => { entryRefs.current[index] = element }}
+                                className="relative scroll-mt-24 flex flex-col gap-6 border-l-4 border-l-border/30 pl-6 transition-colors hover:border-l-border md:gap-8"
                                 id={`entry-${index}`}
                             >
                                 <div className="flex flex-wrap items-center gap-3">

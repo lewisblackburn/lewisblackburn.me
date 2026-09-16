@@ -1,3 +1,5 @@
+import ProjectCard from '@/components/project-card'
+import { projects } from '@/lib/projects'
 import Experience from '@/components/experience'
 import { AnimatedShinyText } from '@/components/magicui/animated-shiny-text'
 import { BlurFade } from '@/components/magicui/blur-fade'
@@ -61,7 +63,7 @@ export default async function HomePage() {
                                 size="lg"
                                 asChild
                             >
-                                <Link href="#experience">
+                                <Link href="#projects">
                                     Learn More
                                     <span className="bg-primary-foreground/15 pointer-events-none absolute inset-y-0 end-0 flex w-9 items-center justify-center">
                                         <ChevronDown
@@ -87,6 +89,39 @@ export default async function HomePage() {
                     <BlurFade delay={0.1 * 5} inView direction="up">
                         <SocialIcons iconClassName="size-5" />
                     </BlurFade>
+                </Container>
+            </section>
+
+            <section
+                id="projects"
+                aria-labelledby="projects-heading"
+                className="border-y py-16 md:py-24"
+            >
+                <Container>
+                    <div className="flex flex-wrap items-end justify-between gap-6 mb-8">
+                        <div className="space-y-3">
+                            <h2
+                                id="projects-heading"
+                                className="text-3xl font-semibold tracking-tight md:text-5xl"
+                            >
+                                Selected projects
+                            </h2>
+                            <p className="text-muted-foreground text-lg">
+                                A few things I’ve built, from client websites to personal projects.
+                            </p>
+                        </div>
+                        <Button variant="outline" asChild>
+                            <Link href="/projects">
+                                View all projects
+                                <ArrowRightIcon aria-hidden="true" className="size-4" />
+                            </Link>
+                        </Button>
+                    </div>
+                    <div className="divide-y divide-border">
+                        {projects.filter((project) => project.featured).map((project) => (
+                            <ProjectCard key={project.title} {...project} />
+                        ))}
+                    </div>
                 </Container>
             </section>
 

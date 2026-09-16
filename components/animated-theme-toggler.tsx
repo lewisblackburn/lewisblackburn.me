@@ -26,6 +26,11 @@ export const AnimatedThemeToggler = ({ className }: props) => {
 
         const newTheme = resolvedTheme === 'dark' ? 'light' : 'dark'
 
+        if (!document.startViewTransition || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            setTheme(newTheme)
+            return
+        }
+
         await document.startViewTransition(() => {
             flushSync(() => {
                 setTheme(newTheme)
@@ -63,6 +68,8 @@ export const AnimatedThemeToggler = ({ className }: props) => {
                 className={cn('relative cursor-pointer', className)}
                 variant="outline"
                 size="icon"
+                aria-label="Toggle colour theme"
+                disabled
             >
                 <div className="h-[1.2rem] w-[1.2rem]" />
             </Button>
@@ -72,15 +79,16 @@ export const AnimatedThemeToggler = ({ className }: props) => {
     return (
         <Button
             ref={buttonRef}
+            aria-label={resolvedTheme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
             onClick={changeTheme}
             className={cn('relative cursor-pointer', className)}
             variant="outline"
             size="icon"
         >
             {resolvedTheme === 'dark' ? (
-                <Sun className="h-[1.2rem] w-[1.2rem] transition-all duration-200" />
+                <Sun aria-hidden="true" className="h-[1.2rem] w-[1.2rem] transition-all duration-200" />
             ) : (
-                <Moon className="h-[1.2rem] w-[1.2rem] transition-all duration-200" />
+                <Moon aria-hidden="true" className="h-[1.2rem] w-[1.2rem] transition-all duration-200" />
             )}
         </Button>
     )

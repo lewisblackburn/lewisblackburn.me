@@ -6,7 +6,7 @@ import NowPlaying from './now-playing'
 
 export default function Footer() {
     return (
-        <section className="bg-background border-t">
+        <footer className="bg-background border-t">
             <Container className="py-12">
                 <div className="flex w-full flex-col justify-between gap-10 lg:flex-row lg:items-start lg:text-left">
                     <div className="flex w-full flex-col justify-between gap-4 lg:items-start">
@@ -80,6 +80,6 @@ export default function Footer() {
                     </ul>
                 </div>
             </Container>
-        </section>
+        </footer>
     )
 }

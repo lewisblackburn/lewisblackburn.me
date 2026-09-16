@@ -29,7 +29,8 @@ export default function ProjectCard({
                 >
                     <Image
                         src={image}
-                        alt="Project image"
+                        alt={`${title} website screenshot`}
+                        sizes="(min-width: 768px) 33vw, 100vw"
                         fill
                         className="object-cover object-center"
                     />
@@ -43,24 +44,28 @@ export default function ProjectCard({
                 </p>
 
                 <div className="flex items-center gap-2 flex-wrap">
-                    <Button variant="outline" asChild>
-                        <Link
-                            href={repository ?? '#'}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <RiGithubFill
-                                className="opacity-60"
-                                size={16}
-                                aria-hidden="true"
-                            />
-                            Repository
-                        </Link>
-                    </Button>
+                    {repository && (
+                        <Button variant="outline" asChild>
+                            <Link
+                                href={repository}
+                                aria-label={`${title} repository (opens in a new tab)`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <RiGithubFill
+                                    className="opacity-60"
+                                    size={16}
+                                    aria-hidden="true"
+                                />
+                                Repository
+                            </Link>
+                        </Button>
+                    )}
                     {url && (
                         <Button variant="outline" asChild>
                             <Link
-                                href={url ?? '#'}
+                                href={url}
+                                aria-label={`${title} live preview (opens in a new tab)`}
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >

@@ -20,6 +20,9 @@ export const metadata: Metadata = {
     },
     description: siteConfig.description,
     keywords: metadataKeywords,
+    alternates: {
+        types: { 'application/rss+xml': [{ url: '/rss', title: 'Lewis Blackburn’s blog' }] },
+    },
 }
 
 export default function RootLayout({
@@ -63,8 +66,9 @@ export default function RootLayout({
                     enableSystem
                     disableTransitionOnChange
                 >
+                    <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:bg-background focus:p-4 focus:text-foreground focus:ring-2 focus:ring-ring">Skip to content</a>
                     <SiteNav />
-                    {children}
+                    <main id="main-content" tabIndex={-1}>{children}</main>
                     <Footer />
                 </ThemeProvider>
             </body>

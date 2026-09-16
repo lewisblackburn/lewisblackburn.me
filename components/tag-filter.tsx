@@ -33,6 +33,7 @@ export function TagFilter({ tags, selectedTag, tagCounts }: TagFilterProps) {
       {tags.map((tag) => (
         <button
           key={tag}
+          aria-pressed={selectedTag === tag}
           onClick={() => handleTagClick(tag)}
           className={`h-8 flex items-center px-1 pl-3 rounded-lg cursor-pointer border text-sm transition-colors ${
             selectedTag === tag
@@ -74,6 +75,7 @@ export function TagFilter({ tags, selectedTag, tagCounts }: TagFilterProps) {
             {tags.map((tag) => (
               <button
                 key={tag}
+          aria-pressed={selectedTag === tag}
                 onClick={() => handleTagClick(tag)}
                 className="w-full flex items-center justify-between font-medium cursor-pointer text-sm transition-colors"
               >

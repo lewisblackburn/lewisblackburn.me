@@ -4,12 +4,14 @@ import tsParser from '@typescript-eslint/parser'
 
 export default [
     {
+        files: ['**/*.{ts,tsx,js,mjs}'],
         plugins: {
             '@next/next': nextPlugin,
             '@typescript-eslint': tsPlugin,
         },
         languageOptions: {
             parser: tsParser,
+            parserOptions: { ecmaFeatures: { jsx: true } },
         },
         rules: {
             ...nextPlugin.configs.recommended.rules,
@@ -19,6 +21,6 @@ export default [
         },
     },
     {
-        ignores: ['components/magicui/*'],
+        ignores: ['.next/**', '.source/**', 'node_modules/**', 'next-env.d.ts', 'components/magicui/**'],
     },
 ]

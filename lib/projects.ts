@@ -3,12 +3,14 @@ export interface Project {
     description: string
     image: string
     repository: string
+    featured?: boolean
     url?: string
 }
 
 export const projects: Project[] = [
     {
         title: 'Drive 2 Learn',
+        featured: true,
         description:
             'A bespoke website developed for a driving instructor to enhance their online presence and streamline their business operations.',
         image: '/projects/drive2learn.png',
@@ -17,6 +19,7 @@ export const projects: Project[] = [
     },
     {
         title: 'Metabase',
+        featured: true,
         description:
             'A comprehensive database that brings together information about films, TV shows, books, people, and songs, all in one convenient platform. Just like popular services like TMDB or IMDb, Metabase provides a place for users to navigate, create and update their favourite media.',
         image: '/projects/metabase.png',

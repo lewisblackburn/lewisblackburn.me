@@ -163,7 +163,7 @@ export function TableOfContents({ className }: TableOfContentsProps) {
       <h4 className="text-sm font-semibold text-foreground mb-4">
         On this page
       </h4>
-      <nav>
+      <nav aria-label="Table of contents">
         <ul className="space-y-2">
           {headings.map((heading) => (
             <li key={heading.id}>

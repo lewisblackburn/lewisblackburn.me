@@ -10,23 +10,6 @@ const formatDate = (date: Date): string => {
     })
 }
 
-interface BlogData {
-    title: string
-    description: string
-    date: string
-    tags?: string[]
-    featured?: boolean
-    readTime?: string
-    author?: string
-    authorImage?: string
-    thumbnail?: string
-}
-
-interface BlogPage {
-    url: string
-    data: BlogData
-}
-
 interface ReadMoreSectionProps {
     currentSlug: string[]
     currentTags?: string[]

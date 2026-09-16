@@ -36,7 +36,7 @@ export function CopyHeader({ level, children, className, ...props }: CopyHeaderP
 
             window.scrollTo({
                 top: offsetPosition,
-                behavior: 'smooth'
+                behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'
             });
         }
 
@@ -63,12 +63,17 @@ export function CopyHeader({ level, children, className, ...props }: CopyHeaderP
                     "group relative scroll-mt-20 cursor-pointer hover:text-muted-foreground transition-colors duration-200 flex items-center gap-2",
                     className
                 )}
-                onClick={copyToClipboard}
-                title="Click to copy link to this section"
                 {...props}
             >
                 {children}
-                <Link className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex-shrink-0" />
+                <button
+                    type="button"
+                    onClick={copyToClipboard}
+                    aria-label={`Copy link to ${text || 'this section'}`}
+                    className="rounded p-1 opacity-0 group-hover:opacity-100 focus-visible:opacity-100 focus-visible:outline-2 focus-visible:outline-ring"
+                >
+                    <Link aria-hidden="true" className="w-4 h-4" />
+                </button>
             </HeadingTag>
         );
     }

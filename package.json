@@ -6,7 +6,7 @@
         "dev": "fumadocs-mdx && next dev --turbopack",
         "build": "fumadocs-mdx && next build",
         "start": "next start",
-        "lint": "next lint",
+        "lint": "eslint .",
         "format": "prettier --write .",
         "postinstall": "fumadocs-mdx"
     },

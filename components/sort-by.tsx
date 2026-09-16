@@ -16,6 +16,7 @@ export default function SortBySelect() {
             <Select defaultValue="1">
                 <SelectTrigger
                     id={id}
+                    aria-label="Sort articles"
                     className="h-11 px-4 py-3 [&>span_svg]:text-muted-foreground/80 [&>span]:flex [&>span]:items-center [&>span]:gap-2 [&>span_svg]:shrink-0"
                 >
                     <SelectValue placeholder="Sort by" />

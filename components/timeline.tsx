@@ -3,18 +3,6 @@ import { DocsBody } from 'fumadocs-ui/page'
 import { Container } from './ui/container'
 import { sideQuestsSource } from '@/source'
 
-interface SideQuestData {
-    title: string
-    date: string
-    location?: string
-    body: any
-}
-
-interface SideQuestPage {
-    url: string
-    data: SideQuestData
-}
-
 export default function Timeline() {
     const allSideQuests = sideQuestsSource.getPages()
 

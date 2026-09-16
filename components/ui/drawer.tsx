@@ -120,6 +120,8 @@ export function DrawerHeader({ children, className, showCloseButton = true }: Dr
             <div className="flex-1">{children}</div>
             {showCloseButton && (
                 <motion.button
+                    aria-label="Close panel"
+                    type="button"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={() => setIsOpen(false)}
